@@ -54,7 +54,7 @@
         .card-flag { font-size: 32px; margin-bottom: 4px; display: block; line-height: 1.1; }
         .card-name { font-size: 13px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .card-capital { font-size: 11px; color: var(--text-sub); font-weight: 500; }
-        .card-continent { font-size: 10px; color: var(--primary); font-weight: 600; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.3px; }
+        .card-continent { font-size: 10px; color: var(--primary); font-weight: 600; text-transform: uppercase; margin-bottom: 4px; letter-spacing: 0.3px; }
         .card-tags { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; margin-top: 4px; }
         .card-tag { font-size: 8px; font-weight: 600; background: #E2E8F0; color: var(--text-sub); padding: 1px 4px; border-radius: 4px; text-transform: uppercase; }
         
@@ -128,7 +128,7 @@
                     </div>
                 </div>
 
-                <!-- Combined Frameworks (Unified per instruction) -->
+                <!-- Combined Frameworks -->
                 <div class="filter-group">
                     <div class="filter-label">Visual Framework & Iconography</div>
                     <div class="btn-row">
@@ -171,39 +171,26 @@
                     </div>
                 </div>
 
-                <!-- Ratios -->
-                <div class="filter-group">
-                    <div class="filter-label">Proportional Geometric Ratios</div>
-                    <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('ratio', 'all', this)">All Ratios</button>
-                        <button class="filter-btn" onclick="setFilter('ratio', '1:1', this)">1:1 Square Format</button>
-                        <button class="filter-btn" onclick="setFilter('ratio', '2:3', this)">2:3 Standard Classic</button>
-                        <button class="filter-btn" onclick="setFilter('ratio', '3:5', this)">3:5 Balanced Variant</button>
-                        <button class="filter-btn" onclick="setFilter('ratio', '1:2', this)">1:2 Elongated Horizon</button>
-                        <button class="filter-btn" onclick="setFilter('ratio', 'irregular', this)">Asymmetric Outlier</button>
-                    </div>
-                </div>
-
                 <!-- Eras -->
                 <div class="filter-group">
                     <div class="filter-label">Chronological Adoption Eras</div>
                     <div class="btn-row">
                         <button class="filter-btn active" onclick="setFilter('era', 'all', this)">All Historical Timelines</button>
                         <button class="filter-btn" onclick="setFilter('era', 'ancient', this)">Pre-1900 Ancients</button>
-                        <button class="filter-btn" onclick="setFilter('era', 'mid-century', this)">1900-1989 Decolonization</button>
+                        <button class="filter-btn" onclick="setFilter('era', 'mid-century', this)">1900-1989 DecColonization</button>
                         <button class="filter-btn" onclick="setFilter('era', 'post-soviet', this)">1990-1999 Geopolitical Shift</button>
                         <button class="filter-btn" onclick="setFilter('era', 'modern', this)">2000-Present Modern Revisions</button>
                     </div>
                 </div>
 
-                <!-- Complexity -->
+                <!-- Complexity (Updated classification layout) -->
                 <div class="filter-group">
-                    <div class="filter-label">Design Complexity Tiers</div>
+                    <div class="filter-label">Design Complexity</div>
                     <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('complexity', 'all', this)">All Tiers</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'tier1', this)">Tier 1: Minimalist Structural</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'tier2', this)">Tier 2: Intermediate Focal Element</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'tier3', this)">Tier 3: Intricate / Complex Shield</button>
+                        <button class="filter-btn active" onclick="setFilter('complexity', 'all', this)">All Designs</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'minimalist', this)">Minimalist</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'intermediate', this)">Intermediate Complexity</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'complex', this)">Complex</button>
                     </div>
                 </div>
 
@@ -250,11 +237,10 @@
                         <div class="quiz-config-label">Question Size:</div>
                         <select id="quiz-size-select" class="select-input" onchange="startNewGameRound()">
                             <option value="4">4 Questions</option>
-                            <option value="6">6 Questions</option>
                             <option value="8">8 Questions</option>
-                            <option value="10" selected>10 Questions</option>
                             <option value="12">12 Questions</option>
-                            <option value="15">15 Questions</option>
+                            <option value="16">16 Questions</option>
+                            <option value="all">Display All Matches</option>
                         </select>
                     </div>
                 </div>
@@ -273,7 +259,7 @@
                 </div>
                 
                 <div class="game-actions">
-                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Click choices within a row to deploy. Click filled slots to eject.</span>
+                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Deploy chips into corresponding target slots below. Click any filled slot to clear.</span>
                     <div class="btn-row">
                         <button class="game-btn" style="background: var(--success);" onclick="checkGameAnswers()">Verify Match Matrix</button>
                         <button class="game-btn" onclick="startNewGameRound()">Reset Grid Layout</button>
@@ -286,161 +272,160 @@
     </div>
 
     <script>
-        // Restored Global Complete Diagnostic Repository (Verified Data Structures)
+        // Diagnostic Repository Mapping across all Global Regions
         const db = [
             // ASIA
-            ["Afghanistan", "Kabul", "AF", "Asia", ["black","red","green","white"], "vertical", "2:3", "modern", "tier3"],
-            ["Armenia", "Yerevan", "AM", "Asia", ["red","blue","yellow"], "horizontal", "1:2", "mid-century", "tier1"],
-            ["Azerbaijan", "Baku", "AZ", "Asia", ["blue","red","green","white"], "crescent", "1:2", "mid-century", "tier2"],
-            ["Bahrain", "Manama", "BH", "Asia", ["red","white"], "vertical", "3:5", "modern", "tier1"],
-            ["Bangladesh", "Dhaka", "BD", "Asia", ["green","red"], "central-disk", "3:5", "mid-century", "tier1"],
-            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "animal", "2:3", "mid-century", "tier3"],
-            ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "emblems", "1:2", "mid-century", "tier3"],
-            ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "emblems", "2:3", "mid-century", "tier2"],
-            ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", "2:3", "mid-century", "tier1"],
-            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "emblems", "3:5", "mid-century", "tier2"],
-            ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "emblems", "2:3", "modern", "tier2"],
-            ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "central-disk", "2:3", "mid-century", "tier2"],
-            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "minimalist", "2:3", "mid-century", "tier1", "twin-indo-monaco"],
-            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "script", "4:7", "mid-century", "tier2"],
-            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "script", "2:3", "modern", "tier2", "twin-arab-stripes"],
-            ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stars", "8:11", "mid-century", "tier2"],
-            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "sun", "2:3", "ancient", "tier1"],
-            ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stars", "1:2", "mid-century", "tier2", "twin-jordan-palestine"],
-            ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "sun", "1:2", "post-soviet", "tier3"],
-            ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "horizontal", "1:2", "mid-century", "tier1"],
-            ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "sun", "3:5", "modern", "tier2"],
-            ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "central-disk", "2:3", "mid-century", "tier1"],
-            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "emblems", "2:3", "mid-century", "tier2"],
-            ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "crescent", "1:2", "mid-century", "tier2"],
-            ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", "2:3", "mid-century", "tier2"],
-            ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical", "1:2", "mid-century", "tier2"],
-            ["Myanmar", "Naypyidaw", "MM", "Asia", ["yellow","green","red","white"], "stars", "2:3", "modern", "tier2"],
-            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "sun", "irregular", "mid-century", "tier2"],
-            ["North Korea", "Pyongyang", "KP", "Asia", ["blue","white","red"], "stars", "1:2", "mid-century", "tier2"],
-            ["Oman", "Muscat", "OM", "Asia", ["white","red","green"], "emblems", "1:2", "mid-century", "tier2"],
-            ["Pakistan", "Islamabad", "PK", "Asia", ["green","white"], "crescent", "2:3", "mid-century", "tier2"],
-            ["Palestine", "Jerusalem", "PS", "Asia", ["black","white","green","red"], "horizontal", "1:2", "mid-century", "tier1", "twin-jordan-palestine"],
-            ["Philippines", "Manila", "PH", "Asia", ["blue","red","white","yellow"], "sun", "1:2", "ancient", "tier2"],
-            ["Qatar", "Doha", "QA", "Asia", ["white","red"], "vertical", "11:28", "mid-century", "tier1"],
-            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "script", "2:3", "mid-century", "tier2"],
-            ["Singapore", "Singapore", "SG", "Asia", ["red","white"], "crescent", "2:3", "mid-century", "tier2"],
-            ["South Korea", "Seoul", "KR", "Asia", ["white","black","red","blue"], "central-disk", "2:3", "mid-century", "tier2"],
-            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "animal", "1:2", "mid-century", "tier3"],
-            ["Syria", "Damascus", "SY", "Asia", ["red","white","black","green"], "stars", "2:3", "mid-century", "tier2"],
-            ["Taiwan", "Taipei", "TW", "Asia", ["red","blue","white"], "sun", "2:3", "mid-century", "tier2"],
-            ["Tajikistan", "Dushanbe", "TJ", "Asia", ["red","white","green","yellow"], "stars", "1:2", "post-soviet", "tier2"],
-            ["Thailand", "Bangkok", "TH", "Asia", ["red","white","blue"], "horizontal", "2:3", "ancient", "tier1"],
-            ["Timor-Leste", "Dili", "TL", "Asia", ["red","yellow","black","white"], "stars", "1:2", "modern", "tier2"],
-            ["Turkey", "Ankara", "TR", "Asia", ["red","white"], "crescent", "2:3", "mid-century", "tier2", "twin-turk-tunisia"],
-            ["Turkmenistan", "Ashgabat", "TM", "Asia", ["green","red","white"], "crescent", "2:3", "modern", "tier3"],
-            ["UAE", "Abu Dhabi", "AE", "Asia", ["red","green","white","black"], "horizontal", "1:2", "mid-century", "tier1"],
-            ["Uzbekistan", "Tashkent", "UZ", "Asia", ["blue","white","green","red"], "crescent", "1:2", "post-soviet", "tier2"],
-            ["Vietnam", "Hanoi", "VN", "Asia", ["red","yellow"], "stars", "2:3", "mid-century", "tier1"],
-            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "minimalist", "2:3", "post-soviet", "tier1", "twin-arab-stripes"],
+            ["Afghanistan", "Kabul", "AF", "Asia", ["black","red","green","white"], "vertical", "modern", "complex"],
+            ["Armenia", "Yerevan", "AM", "Asia", ["red","blue","yellow"], "horizontal", "mid-century", "minimalist"],
+            ["Azerbaijan", "Baku", "AZ", "Asia", ["blue","red","green","white"], "crescent", "mid-century", "intermediate"],
+            ["Bahrain", "Manama", "BH", "Asia", ["red","white"], "vertical", "modern", "minimalist"],
+            ["Bangladesh", "Dhaka", "BD", "Asia", ["green","red"], "central-disk", "mid-century", "minimalist"],
+            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "animal", "mid-century", "complex"],
+            ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "emblems", "mid-century", "complex"],
+            ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "emblems", "mid-century", "intermediate"],
+            ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", "mid-century", "minimalist"],
+            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "emblems", "mid-century", "intermediate"],
+            ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "emblems", "modern", "intermediate"],
+            ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "central-disk", "mid-century", "intermediate"],
+            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "minimalist", "mid-century", "minimalist", "twin-indo-monaco"],
+            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "script", "mid-century", "intermediate"],
+            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "script", "modern", "intermediate", "twin-arab-stripes"],
+            ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stars", "mid-century", "intermediate"],
+            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "sun", "ancient", "minimalist"],
+            ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stars", "mid-century", "intermediate", "twin-jordan-palestine"],
+            ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "sun", "post-soviet", "complex"],
+            ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "horizontal", "mid-century", "minimalist"],
+            ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "sun", "modern", "intermediate"],
+            ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "central-disk", "mid-century", "minimalist"],
+            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "emblems", "mid-century", "intermediate"],
+            ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "crescent", "mid-century", "intermediate"],
+            ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", "mid-century", "intermediate"],
+            ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical", "mid-century", "intermediate"],
+            ["Myanmar", "Naypyidaw", "MM", "Asia", ["yellow","green","red","white"], "stars", "modern", "intermediate"],
+            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "sun", "mid-century", "intermediate"],
+            ["North Korea", "Pyongyang", "KP", "Asia", ["blue","white","red"], "stars", "mid-century", "intermediate"],
+            ["Oman", "Muscat", "OM", "Asia", ["white","red","green"], "emblems", "mid-century", "intermediate"],
+            ["Pakistan", "Islamabad", "PK", "Asia", ["green","white"], "crescent", "mid-century", "intermediate"],
+            ["Palestine", "Jerusalem", "PS", "Asia", ["black","white","green","red"], "horizontal", "mid-century", "minimalist", "twin-jordan-palestine"],
+            ["Philippines", "Manila", "PH", "Asia", ["blue","red","white","yellow"], "sun", "ancient", "intermediate"],
+            ["Qatar", "Doha", "QA", "Asia", ["white","red"], "vertical", "mid-century", "minimalist"],
+            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "script", "mid-century", "intermediate"],
+            ["Singapore", "Singapore", "SG", "Asia", ["red","white"], "crescent", "mid-century", "intermediate"],
+            ["South Korea", "Seoul", "KR", "Asia", ["white","black","red","blue"], "central-disk", "mid-century", "intermediate"],
+            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "animal", "mid-century", "complex"],
+            ["Syria", "Damascus", "SY", "Asia", ["red","white","black","green"], "stars", "mid-century", "intermediate"],
+            ["Taiwan", "Taipei", "TW", "Asia", ["red","blue","white"], "sun", "mid-century", "intermediate"],
+            ["Tajikistan", "Dushanbe", "TJ", "Asia", ["red","white","green","yellow"], "stars", "post-soviet", "intermediate"],
+            ["Thailand", "Bangkok", "TH", "Asia", ["red","white","blue"], "horizontal", "ancient", "minimalist"],
+            ["Timor-Leste", "Dili", "TL", "Asia", ["red","yellow","black","white"], "stars", "modern", "intermediate"],
+            ["Turkey", "Ankara", "TR", "Asia", ["red","white"], "crescent", "mid-century", "intermediate", "twin-turk-tunisia"],
+            ["Turkmenistan", "Ashgabat", "TM", "Asia", ["green","red","white"], "crescent", "modern", "complex"],
+            ["UAE", "Abu Dhabi", "AE", "Asia", ["red","green","white","black"], "horizontal", "mid-century", "minimalist"],
+            ["Uzbekistan", "Tashkent", "UZ", "Asia", ["blue","white","green","red"], "crescent", "post-soviet", "intermediate"],
+            ["Vietnam", "Hanoi", "VN", "Asia", ["red","yellow"], "stars", "mid-century", "minimalist"],
+            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "minimalist", "post-soviet", "minimalist", "twin-arab-stripes"],
 
             // EUROPE
-            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "animal", "5:7", "mid-century", "tier2"],
-            ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "emblems", "7:10", "mid-century", "tier3", "twin-blue-yellow-red-vertical"],
-            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "minimalist", "2:3", "ancient", "tier1", "twin-latvia-austria"],
-            ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "horizontal", "1:2", "post-soviet", "tier2"],
-            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "minimalist", "13:15", "ancient", "tier1"],
-            ["Bosnia and Herzegovina", "Sarajevo", "BA", "Europe", ["blue","yellow","white"], "stars", "1:2", "post-soviet", "tier2"],
-            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "minimalist", "3:5", "post-soviet", "tier1"],
-            ["Croatia", "Zagreb", "HR", "Europe", ["red","white","blue"], "emblems", "1:2", "post-soviet", "tier3"],
-            ["Czechia", "Prague", "CZ", "Europe", ["white","blue","red"], "horizontal", "2:3", "mid-century", "tier1"],
-            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "minimalist", "28:37", "ancient", "tier1", "twin-nordic-cross"],
-            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "minimalist", "7:11", "post-soviet", "tier1"],
-            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "minimalist", "11:18", "ancient", "tier1", "twin-nordic-cross"],
-            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "minimalist", "2:3", "ancient", "tier1"],
-            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "minimalist", "3:5", "mid-century", "tier1"],
-            ["Greece", "Athens", "GR", "Europe", ["blue","white"], "horizontal", "2:3", "mid-century", "tier1"],
-            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "minimalist", "1:2", "mid-century", "tier1"],
-            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "minimalist", "18:25", "mid-century", "tier1", "twin-nordic-cross"],
-            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "minimalist", "1:2", "ancient", "tier1", "twin-ireland-ivory"],
-            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "minimalist", "2:3", "mid-century", "tier1", "twin-ireland-ivory"],
-            ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", "2:3", "modern", "tier2"],
-            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "minimalist", "1:2", "post-soviet", "tier1", "twin-latvia-austria"],
-            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "minimalist", "3:5", "post-soviet", "tier1"],
-            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "minimalist", "3:5", "mid-century", "tier1", "twin-lux-netherlands"],
-            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "emblems", "2:3", "mid-century", "tier2"],
-            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "animal", "1:2", "post-soviet", "tier3", "twin-blue-yellow-red-vertical"],
-            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "minimalist", "4:5", "ancient", "tier1", "twin-indo-monaco"],
-            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "animal", "1:2", "modern", "tier3"],
-            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "minimalist", "2:3", "ancient", "tier1", "twin-lux-netherlands"],
-            ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "sun", "1:2", "post-soviet", "tier1"],
-            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "minimalist", "8:11", "ancient", "tier1", "twin-nordic-cross"],
-            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "minimalist", "5:8", "ancient", "tier1", "twin-indo-monaco"],
-            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "emblems", "2:3", "mid-century", "tier3"],
-            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "minimalist", "2:3", "post-soviet", "tier1", "twin-romania-chad"],
-            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "minimalist", "2:3", "post-soviet", "tier1", "twin-panslav-horizontals"],
-            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "emblems", "3:4", "ancient", "tier3"],
-            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "animal", "2:3", "modern", "tier3"],
-            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "2:3", "post-soviet", "tier2", "twin-panslav-horizontals"],
-            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "1:2", "post-soviet", "tier2", "twin-panslav-horizontals"],
-            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "emblems", "2:3", "mid-century", "tier3"],
-            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "minimalist", "5:8", "ancient", "tier1", "twin-nordic-cross"],
-            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "minimalist", "1:1", "ancient", "tier1"],
-            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "minimalist", "2:3", "post-soviet", "tier1"],
-            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "minimalist", "1:2", "ancient", "tier1"],
-            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "emblems", "1:1", "mid-century", "tier3"],
+            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "animal", "mid-century", "intermediate"],
+            ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "emblems", "mid-century", "complex"],
+            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-latvia-austria"],
+            ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "horizontal", "post-soviet", "intermediate"],
+            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "minimalist", "ancient", "minimalist"],
+            ["Bosnia and Herzegovina", "Sarajevo", "BA", "Europe", ["blue","yellow","white"], "stars", "post-soviet", "intermediate"],
+            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "minimalist", "post-soviet", "minimalist"],
+            ["Croatia", "Zagreb", "HR", "Europe", ["red","white","blue"], "emblems", "post-soviet", "complex"],
+            ["Czechia", "Prague", "CZ", "Europe", ["white","blue","red"], "horizontal", "mid-century", "minimalist"],
+            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "minimalist", "post-soviet", "minimalist"],
+            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
+            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "minimalist", "ancient", "minimalist"],
+            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "minimalist", "mid-century", "minimalist"],
+            ["Greece", "Athens", "GR", "Europe", ["blue","white"], "horizontal", "mid-century", "minimalist"],
+            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "minimalist", "mid-century", "minimalist"],
+            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "minimalist", "mid-century", "minimalist", "twin-nordic-cross"],
+            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "minimalist", "ancient", "minimalist", "twin-ireland-ivory"],
+            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "minimalist", "mid-century", "minimalist", "twin-ireland-ivory"],
+            ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", "modern", "intermediate"],
+            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "minimalist", "post-soviet", "minimalist", "twin-latvia-austria"],
+            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "minimalist", "post-soviet", "minimalist"],
+            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "minimalist", "mid-century", "minimalist", "twin-lux-netherlands"],
+            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "emblems", "mid-century", "intermediate"],
+            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "animal", "post-soviet", "complex"],
+            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-indo-monaco"],
+            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "animal", "modern", "complex"],
+            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "minimalist", "ancient", "minimalist", "twin-lux-netherlands"],
+            ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "sun", "post-soviet", "minimalist"],
+            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "minimalist", "ancient", "minimalist", "twin-indo-monaco"],
+            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "emblems", "mid-century", "complex"],
+            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "minimalist", "post-soviet", "minimalist", "twin-romania-chad"],
+            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "minimalist", "post-soviet", "minimalist", "twin-panslav-horizontals"],
+            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "emblems", "ancient", "complex"],
+            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "animal", "modern", "complex"],
+            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate"],
+            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate"],
+            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "emblems", "mid-century", "complex"],
+            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "minimalist", "ancient", "minimalist"],
+            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "minimalist", "post-soviet", "minimalist"],
+            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "minimalist", "ancient", "minimalist"],
+            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "emblems", "mid-century", "complex"],
 
             // AFRICA
-            ["Algeria", "Algiers", "DZ", "Africa", ["green","white","red"], "crescent", "2:3", "mid-century", "tier2"],
-            ["Angola", "Luanda", "AO", "Africa", ["red","black","yellow"], "emblems", "2:3", "mid-century", "tier2"],
-            ["Cameroon", "Yaoundé", "CM", "Africa", ["green","red","yellow"], "stars", "2:3", "mid-century", "tier2", "twin-panafrican-vertical"],
-            ["Chad", "N'Djamena", "TD", "Africa", ["blue","yellow","red"], "minimalist", "2:3", "mid-century", "tier1", "twin-romania-chad"],
-            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "animal", "2:3", "mid-century", "tier2", "twin-arab-stripes"],
-            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "sun", "1:2", "post-soviet", "tier2"],
-            ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "stars", "2:3", "mid-century", "tier2"],
-            ["Guinea", "Conakry", "GN", "Africa", ["red","yellow","green"], "minimalist", "2:3", "mid-century", "tier1", "twin-panafrican-vertical"],
-            ["Ivory Coast", "Yamoussoukmo", "CI", "Africa", ["orange","white","green"], "minimalist", "2:3", "mid-century", "tier1", "twin-ireland-ivory"],
-            ["Kenya", "Nairobi", "KE", "Africa", ["black","red","green","white"], "emblems", "2:3", "mid-century", "tier2"],
-            ["Libya", "Tripoli", "LY", "Africa", ["red","black","green","white"], "crescent", "1:2", "modern", "tier2"],
-            ["Mali", "Bamako", "ML", "Africa", ["green","yellow","red"], "minimalist", "2:3", "mid-century", "tier1", "twin-panafrican-vertical"],
-            ["Mauritania", "Nouakchott", "MR", "Africa", ["green","yellow","red"], "crescent", "2:3", "modern", "tier2"],
-            ["Morocco", "Rabat", "MA", "Africa", ["red","green"], "stars", "2:3", "mid-century", "tier1"],
-            ["Nigeria", "Abuja", "NG", "Africa", ["green","white"], "vertical", "1:2", "mid-century", "tier1"],
-            ["Senegal", "Dakar", "SN", "Africa", ["green","yellow","red"], "stars", "2:3", "mid-century", "tier2", "twin-panafrican-vertical"],
-            ["South Africa", "Pretoria", "ZA", "Africa", ["red","blue","green","black","white","yellow"], "horizontal", "2:3", "post-soviet", "tier3"],
-            ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "crescent", "2:3", "mid-century", "tier2", "twin-turk-tunisia"],
+            ["Algeria", "Algiers", "DZ", "Africa", ["green","white","red"], "crescent", "mid-century", "intermediate"],
+            ["Angola", "Luanda", "AO", "Africa", ["red","black","yellow"], "emblems", "mid-century", "intermediate"],
+            ["Cameroon", "Yaoundé", "CM", "Africa", ["green","red","yellow"], "stars", "mid-century", "intermediate", "twin-panafrican-vertical"],
+            ["Chad", "N'Djamena", "TD", "Africa", ["blue","yellow","red"], "minimalist", "mid-century", "minimalist", "twin-romania-chad"],
+            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "animal", "mid-century", "intermediate", "twin-arab-stripes"],
+            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "sun", "post-soviet", "intermediate"],
+            ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "stars", "mid-century", "intermediate"],
+            ["Guinea", "Conakry", "GN", "Africa", ["red","yellow","green"], "minimalist", "mid-century", "minimalist", "twin-panafrican-vertical"],
+            ["Ivory Coast", "Yamoussoukro", "CI", "Africa", ["orange","white","green"], "minimalist", "mid-century", "minimalist", "twin-ireland-ivory"],
+            ["Kenya", "Nairobi", "KE", "Africa", ["black","red","green","white"], "emblems", "mid-century", "intermediate"],
+            ["Libya", "Tripoli", "LY", "Africa", ["red","black","green","white"], "crescent", "modern", "intermediate"],
+            ["Mali", "Bamako", "ML", "Africa", ["green","yellow","red"], "minimalist", "mid-century", "minimalist", "twin-panafrican-vertical"],
+            ["Mauritania", "Nouakchott", "MR", "Africa", ["green","yellow","red"], "crescent", "modern", "intermediate"],
+            ["Morocco", "Rabat", "MA", "Africa", ["red","green"], "stars", "mid-century", "minimalist"],
+            ["Nigeria", "Abuja", "NG", "Africa", ["green","white"], "vertical", "mid-century", "minimalist"],
+            ["Senegal", "Dakar", "SN", "Africa", ["green","yellow","red"], "stars", "mid-century", "intermediate", "twin-panafrican-vertical"],
+            ["South Africa", "Pretoria", "ZA", "Africa", ["red","blue","green","black","white","yellow"], "horizontal", "post-soviet", "complex"],
+            ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "crescent", "mid-century", "intermediate", "twin-turk-tunisia"],
 
             // AMERICAS
-            ["Argentina", "Buenos Aires", "AR", "Americas", ["blue","white","yellow"], "sun", "5:8", "ancient", "tier2"],
-            ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "stars", "7:10", "mid-century", "tier2"],
-            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "emblems", "1:2", "mid-century", "tier2"],
-            ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", "2:3", "ancient", "tier2"],
-            ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal", "2:3", "ancient", "tier1"],
-            ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "stars", "1:2", "ancient", "tier2"],
-            ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "minimalist", "1:2", "mid-century", "tier1"],
-            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "animal", "4:7", "mid-century", "tier3"],
-            ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "stars", "2:3", "mid-century", "tier2"],
-            ["Peru", "Lima", "PE", "Americas", ["red","white"], "minimalist", "2:3", "ancient", "tier1"],
-            ["United States", "Washington D.C.", "US", "Americas", ["red","white","blue"], "stars", "10:19", "ancient", "tier2"],
-            ["Uruguay", "Montevideo", "UY", "Americas", ["blue","white","yellow"], "sun", "2:3", "ancient", "tier2"],
-            ["Venezuela", "Caracas", "VE", "Americas", ["yellow","blue","red","white"], "stars", "2:3", "modern", "tier2"],
+            ["Argentina", "Buenos Aires", "AR", "Americas", ["blue","white","yellow"], "sun", "ancient", "intermediate"],
+            ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "stars", "mid-century", "intermediate"],
+            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "emblems", "mid-century", "intermediate"],
+            ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal", "ancient", "minimalist"],
+            ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "minimalist", "mid-century", "minimalist"],
+            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "animal", "mid-century", "complex"],
+            ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "stars", "mid-century", "intermediate"],
+            ["Peru", "Lima", "PE", "Americas", ["red","white"], "minimalist", "ancient", "minimalist"],
+            ["United States", "Washington D.C.", "US", "Americas", ["red","white","blue"], "stars", "ancient", "intermediate"],
+            ["Uruguay", "Montevideo", "UY", "Americas", ["blue","white","yellow"], "sun", "ancient", "intermediate"],
+            ["Venezuela", "Caracas", "VE", "Americas", ["yellow","blue","red","white"], "stars", "modern", "intermediate"],
 
             // OCEANIA
-            ["Australia", "Canberra", "AU", "Oceania", ["blue","white","red"], "stars", "1:2", "ancient", "tier2"],
-            ["Fiji", "Suva", "FJ", "Oceania", ["blue","white","red","green","yellow"], "emblems", "1:2", "mid-century", "tier3"],
-            ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "stars", "1:2", "ancient", "tier2"],
-            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "animal", "3:4", "mid-century", "tier2"],
-            ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "stars", "1:2", "mid-century", "tier2"]
+            ["Australia", "Canberra", "AU", "Oceania", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Fiji", "Suva", "FJ", "Oceania", ["blue","white","red","green","yellow"], "emblems", "mid-century", "complex"],
+            ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "animal", "mid-century", "intermediate"],
+            ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "stars", "mid-century", "intermediate"]
         ];
 
         const twinProfiles = {
-            "twin-latvia-austria": "Latvia & Austria (Proportional Crimson/Red Horizontal Lines)",
-            "twin-panafrican-vertical": "Mali, Senegal, Cameroon & Guinea (Pan-African Vertical Configurations)",
-            "twin-jordan-palestine": "Jordan & Palestine (Levantine Chevron Triangular Fields)",
-            "twin-romania-chad": "Romania & Chad (Near-Identical Blue/Yellow/Red Vertical Layouts)",
-            "twin-ireland-ivory": "Ireland & Ivory Coast (Vertical Mirror Configurations)",
+            "twin-latvia-austria": "Latvia & Austria (Crimson / Red Horizontal Fields)",
+            "twin-panafrican-vertical": "Mali, Senegal, Cameroon & Guinea (Pan-African Verticals)",
+            "twin-jordan-palestine": "Jordan & Palestine (Levantine Triangular Chevrons)",
+            "twin-romania-chad": "Romania & Chad (Near-Identical Vertical Tr colors)",
+            "twin-ireland-ivory": "Ireland & Ivory Coast (Vertical Mirror Frameworks)",
             "twin-indo-monaco": "Indonesia, Poland & Monaco (Horizontal Simple Two-Tone Splits)",
             "twin-lux-netherlands": "Netherlands & Luxembourg (Red/White/Blue Horizontal Tiers)",
-            "twin-arab-stripes": "Iraq, Yemen & Egypt (Arab Liberation Red/White/Black Structural Bands)",
+            "twin-arab-stripes": "Iraq, Yemen & Egypt (Arab Liberation Horizontal Structural Bands)",
             "twin-turk-tunisia": "Turkey & Tunisia (Crescent Moon and Star Formations on Red)",
             "twin-nordic-cross": "The Nordic Cross Constellation (Iceland, Denmark, Finland, Norway, Sweden)",
-            "twin-panslav-horizontals": "Pan-Slavic Structural Tiers (Russia, Slovakia, Slovenia Alignments)",
-            "twin-blue-yellow-red-vertical": "Vertical Blue/Yellow/Red fields with center Arms (Andorra & Moldova)"
+            "twin-panslav-horizontals": "Pan-Slavic Structural Tiers (Russia, Slovakia, Slovenia Alignments)"
         };
 
         function buildFlagEmoji(iso) {
@@ -451,7 +436,7 @@
 
         const dataset = db.map(i => ({
             name: i[0], capital: i[1], flag: buildFlagEmoji(i[2]), continent: i[3],
-            colors: i[4], visual: i[5], ratio: i[6], era: i[7], complexity: i[8], twinId: i[9] || "",
+            colors: i[4], visual: i[5], era: i[6], complexity: i[7], twinId: i[8] || "",
             initial: i[0].charAt(0).toUpperCase()
         }));
 
@@ -460,7 +445,7 @@
         
         let filters = {
             continent: 'all', visual: 'all', colorVal: 'all', colorCount: 'all',
-            ratio: 'all', era: 'all', complexity: 'all', letter: 'all'
+            era: 'all', complexity: 'all', letter: 'all'
         };
 
         let chosenQuizContinents = new Set(["Europe", "Asia", "Africa", "Americas", "Oceania"]);
@@ -527,7 +512,6 @@
                 if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
                 if (filters.visual !== 'all' && item.visual !== filters.visual) return false;
                 if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
-                if (filters.ratio !== 'all' && item.ratio !== filters.ratio) return false;
                 if (filters.era !== 'all' && item.era !== filters.era) return false;
                 if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
                 if (filters.colorCount === '2' && item.colors.length !== 2) return false;
@@ -563,8 +547,8 @@
                 <div class="card-capital">${item.capital}</div>
                 <div class="card-continent">${item.continent}</div>
                 <div class="card-tags">
-                    <span class="card-tag">${item.ratio}</span>
                     <span class="card-tag">${item.visual}</span>
+                    <span class="card-tag">${item.complexity}</span>
                 </div>
             `;
             return block;
@@ -579,7 +563,6 @@
                 if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
                 if (filters.visual !== 'all' && item.visual !== filters.visual) return false;
                 if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
-                if (filters.ratio !== 'all' && item.ratio !== filters.ratio) return false;
                 if (filters.era !== 'all' && item.era !== filters.era) return false;
                 if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
                 if (filters.letter !== 'all' && item.initial.toLowerCase() !== filters.letter) return false;
@@ -591,7 +574,7 @@
 
             result.sort((x, y) => x.name.localeCompare(y.name));
             grid.innerHTML = '';
-            metrics.innerText = `Showing ${result.length} diagnostic configurations matching criteria`;
+            metrics.innerText = `Showing ${result.length} global diagnostic configurations matching criteria`;
 
             if (result.length === 0) {
                 grid.innerHTML = '<div class="no-results">No entries match the chosen criteria.</div>';
@@ -666,29 +649,35 @@
             const targetContainer = document.getElementById('game-main-matrix-rows-container');
             targetContainer.innerHTML = '';
 
+            let isQuizActive = !document.getElementById('panel-quiz-configs').classList.contains('hidden');
             let poolByContinents = [];
-            let requestedSize = 10;
 
-            if (document.getElementById('panel-quiz-configs').classList.contains('hidden') === false) {
+            if (isQuizActive) {
                 poolByContinents = dataset.filter(item => chosenQuizContinents.has(item.continent));
-                requestedSize = parseInt(document.getElementById('quiz-size-select').value) || 10;
+                let sizeConfig = document.getElementById('quiz-size-select').value;
+                
+                let shuffledPool = [...poolByContinents].sort(() => 0.5 - Math.random());
+                if (sizeConfig === 'all') {
+                    currentQuizCountries = shuffledPool;
+                } else {
+                    let size = parseInt(sizeConfig) || 10;
+                    currentQuizCountries = shuffledPool.slice(0, Math.min(size, shuffledPool.length));
+                }
             } else {
+                // Marathon Mode loops ALL countries within the selected continent without truncation limits
                 poolByContinents = dataset.filter(item => item.continent === activeMarathonContinent);
-                requestedSize = Math.min(poolByContinents.length, 12);
+                currentQuizCountries = [...poolByContinents].sort((a, b) => a.name.localeCompare(b.name));
             }
 
-            if (poolByContinents.length === 0) {
-                targetContainer.innerHTML = `<div class="no-results">Select parameters to populate game matrix.</div>`;
+            if (currentQuizCountries.length === 0) {
+                targetContainer.innerHTML = `<div class="no-results">Select parameters to populate testing matrix.</div>`;
                 return;
             }
 
-            const shuffledPool = [...poolByContinents].sort(() => 0.5 - Math.random());
-            currentQuizCountries = shuffledPool.slice(0, requestedSize);
-
             const unifiedFlagsPool = currentQuizCountries.map(c => ({ name: c.name, flag: c.flag })).sort(() => 0.5 - Math.random());
-            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital })).sort((a, b) => a.capital.localeCompare(b.capital));
+            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital })).sort(() => 0.5 - Math.random());
 
-            currentQuizCountries.forEach((country, rowIndex) => {
+            currentQuizCountries.forEach((country) => {
                 const rowWrapper = document.createElement('div');
                 rowWrapper.className = 'game-row-container';
                 rowWrapper.dataset.countryName = country.name;
