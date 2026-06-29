@@ -136,6 +136,7 @@
                         <button class="filter-btn" onclick="setFilter('visual', 'sun', this)">Sun</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'crescent', this)">Crescent</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'animal', this)">Animal / Fauna</button>
+                        <button class="filter-btn" onclick="setFilter('visual', 'flora', this)">Flora / Leaves</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'script', this)">Script</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'central-disk', this)">Central Disk</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'emblems', this)">Emblems</button>
@@ -248,7 +249,7 @@
                 </div>
                 
                 <div class="game-actions">
-                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Deploy chips into corresponding target slots below. Click any filled slot to clear.</span>
+                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);;">Deploy chips into corresponding target slots below. Click any filled slot to clear.</span>
                     <div class="btn-row">
                         <button class="game-btn" style="background: var(--success);" onclick="checkGameAnswers()">Verify Match Matrix</button>
                         <button class="game-btn" onclick="startNewGameRound()">Reset Grid Layout</button>
@@ -272,25 +273,25 @@
             ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "emblems", "mid-century", "complex"],
             ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "emblems", "mid-century", "intermediate"],
             ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", "mid-century", "intermediate"],
-            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "emblems", "mid-century", "intermediate"],
+            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "flora", "mid-century", "intermediate"],
             ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "emblems", "modern", "intermediate"],
             ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "central-disk", "mid-century", "intermediate"],
             ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "horizontal", "mid-century", "intermediate", "twin-indo-monaco"],
             ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "script", "mid-century", "intermediate"],
             ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "script", "modern", "intermediate", "twin-arab-stripes"],
             ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stars", "mid-century", "intermediate"],
-            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "sun", "ancient", "intermediate"],
+            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "central-disk", "ancient", "intermediate"],
             ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stars", "mid-century", "intermediate", "twin-jordan-palestine"],
             ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "sun", "post-soviet", "complex"],
             ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "horizontal", "mid-century", "intermediate"],
             ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "sun", "modern", "intermediate"],
             ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "central-disk", "mid-century", "intermediate"],
-            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "emblems", "mid-century", "intermediate"],
+            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "flora", "mid-century", "intermediate"],
             ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "crescent", "mid-century", "intermediate"],
             ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", "mid-century", "intermediate"],
             ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical", "mid-century", "intermediate"],
             ["Myanmar", "Naypyidaw", "MM", "Asia", ["yellow","green","red","white"], "stars", "modern", "intermediate"],
-            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "sun", "mid-century", "intermediate"],
+            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "crescent", "mid-century", "intermediate"],
             ["North Korea", "Pyongyang", "KP", "Asia", ["blue","white","red"], "stars", "mid-century", "intermediate"],
             ["Oman", "Muscat", "OM", "Asia", ["white","red","green"], "emblems", "mid-century", "intermediate"],
             ["Pakistan", "Islamabad", "PK", "Asia", ["green","white"], "crescent", "mid-century", "intermediate"],
@@ -376,9 +377,9 @@
             ["Djibouti", "Djibouti", "DJ", "Africa", ["blue","green","white","red"], "stars", "mid-century", "intermediate"],
             ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "animal", "mid-century", "intermediate", "twin-arab-stripes"],
             ["Equatorial Guinea", "Malabo", "GQ", "Africa", ["green","white","red","blue"], "emblems", "mid-century", "complex"],
-            ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "emblems", "post-soviet", "complex"],
+            ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "flora", "post-soviet", "complex"],
             ["Eswatini", "Mbabane", "SZ", "Africa", ["blue","yellow","red","black","white"], "emblems", "mid-century", "complex"],
-            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "sun", "post-soviet", "intermediate"],
+            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "central-disk", "post-soviet", "intermediate"],
             ["Gabon", "Libreville", "GA", "Africa", ["green","yellow","blue"], "horizontal", "mid-century", "intermediate"],
             ["Gambia", "Banjul", "GM", "Africa", ["red","blue","green","white"], "horizontal", "mid-century", "intermediate"],
             ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "stars", "mid-century", "intermediate"],
@@ -423,7 +424,7 @@
             ["Belize", "Belmopan", "BZ", "Americas", ["blue","red","white"], "emblems", "mid-century", "complex"],
             ["Bolivia", "Sucre", "BO", "Americas", ["red","yellow","green"], "horizontal", "ancient", "intermediate"],
             ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "stars", "mid-century", "intermediate"],
-            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "emblems", "mid-century", "intermediate"],
+            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "flora", "mid-century", "intermediate"],
             ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
             ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal", "ancient", "intermediate"],
             ["Costa Rica", "San José", "CR", "Americas", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
@@ -787,6 +788,7 @@
                 capitalFieldBlock.appendChild(rowCapitalBank);
                 rowWrapper.appendChild(capitalFieldBlock);
 
+                rowWrapper.appendChild(capitalFieldBlock);
                 targetContainer.appendChild(rowWrapper);
             });
         }
