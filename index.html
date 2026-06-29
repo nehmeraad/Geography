@@ -43,9 +43,7 @@
         .btn-row { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
         .filter-btn { background: var(--bg-main); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 500; color: var(--text-main); cursor: pointer; transition: all 0.12s; user-select: none; }
         .filter-btn.active { background: var(--primary); border-color: var(--primary); color: #FFFFFF; }
-        .filter-btn:disabled { opacity: 0.25; cursor: not-allowed; }
         
-        .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; border: 1px solid rgba(0,0,0,0.1); }
         .stats { font-size: 12px; color: var(--text-sub); font-weight: 500; margin-bottom: 12px; }
 
         .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 8px; }
@@ -136,61 +134,9 @@
                         <button class="filter-btn" onclick="setFilter('visual', 'sun', this)">Sun</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'crescent', this)">Crescent</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'animal', this)">Animal / Fauna</button>
-                        <button class="filter-btn" onclick="setFilter('visual', 'minimalist', this)">Minimalist</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'script', this)">Script</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'central-disk', this)">Central Disk</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'emblems', this)">Emblems</button>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-label">Colors Present</div>
-                    <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('colorVal', 'all', this)">All Colors</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'red', this)"><span class="color-dot" style="background:#EF4444"></span>Red</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'blue', this)"><span class="color-dot" style="background:#3B82F6"></span>Blue</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'green', this)"><span class="color-dot" style="background:#22C55E"></span>Green</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'yellow', this)"><span class="color-dot" style="background:#EAB308"></span>Yellow</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'white', this)"><span class="color-dot" style="background:#FFFFFF"></span>White</button>
-                        <button class="filter-btn" onclick="setFilter('colorVal', 'black', this)"><span class="color-dot" style="background:#0F172A"></span>Black</button>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-label">Color Count Limitation</div>
-                    <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('colorCount', 'all', this)">All Quantities</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '2', this)">Exactly 2 colors</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '3', this)">Exactly 3</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '4plus', this)">4 or more</button>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-label">Chronological Adoption Eras</div>
-                    <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('era', 'all', this)">All Historical Timelines</button>
-                        <button class="filter-btn" onclick="setFilter('era', 'ancient', this)">Pre-1900 Ancients</button>
-                        <button class="filter-btn" onclick="setFilter('era', 'mid-century', this)">1900-1989 DecColonization</button>
-                        <button class="filter-btn" onclick="setFilter('era', 'post-soviet', this)">1990-1999 Geopolitical Shift</button>
-                        <button class="filter-btn" onclick="setFilter('era', 'modern', this)">2000-Present Modern Revisions</button>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-label">Design Complexity</div>
-                    <div class="btn-row">
-                        <button class="filter-btn active" onclick="setFilter('complexity', 'all', this)">All Designs</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'minimalist', this)">Minimalist</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'intermediate', this)">Intermediate</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'complex', this)">Complex</button>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <div class="filter-label">Alphabetical Index</div>
-                    <div class="btn-row" id="alphabet-matrix">
-                        <button class="filter-btn active" onclick="setFilter('letter', 'all', this)">All Letters</button>
                     </div>
                 </div>
             </div>
@@ -277,11 +223,11 @@
             ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "emblems", "mid-century", "intermediate"],
             ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "emblems", "modern", "intermediate"],
             ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "central-disk", "mid-century", "intermediate"],
-            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "minimalist", "mid-century", "minimalist", "twin-indo-monaco"],
+            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "horizontal", "mid-century", "minimalist", "twin-indo-monaco"],
             ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "script", "mid-century", "intermediate"],
             ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "script", "modern", "intermediate", "twin-arab-stripes"],
             ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stars", "mid-century", "intermediate"],
-            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "sun", "ancient", "minimalist"],
+            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "central-disk", "ancient", "minimalist"],
             ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stars", "mid-century", "intermediate", "twin-jordan-palestine"],
             ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "sun", "post-soviet", "complex"],
             ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "horizontal", "mid-century", "minimalist"],
@@ -313,162 +259,162 @@
             ["UAE", "Abu Dhabi", "AE", "Asia", ["red","green","white","black"], "horizontal", "mid-century", "minimalist"],
             ["Uzbekistan", "Tashkent", "UZ", "Asia", ["blue","white","green","red"], "crescent", "post-soviet", "intermediate"],
             ["Vietnam", "Hanoi", "VN", "Asia", ["red","yellow"], "stars", "mid-century", "minimalist"],
-            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "minimalist", "post-soviet", "minimalist", "twin-arab-stripes"],
+            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "horizontal", "post-soviet", "minimalist", "twin-arab-stripes"],
 
             // EUROPE (44 Countries)
             ["Albania", "Tirana", "AL", "Europe", ["red","black"], "animal", "mid-century", "intermediate"],
             ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "emblems", "mid-century", "complex"],
-            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-latvia-austria"],
+            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "horizontal", "ancient", "minimalist", "twin-latvia-austria"],
             ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "horizontal", "post-soviet", "intermediate"],
-            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "minimalist", "ancient", "minimalist"],
+            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "vertical", "ancient", "minimalist"],
             ["Bosnia and Herzegovina", "Sarajevo", "BA", "Europe", ["blue","yellow","white"], "stars", "post-soviet", "intermediate"],
-            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "minimalist", "post-soviet", "minimalist"],
+            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "horizontal", "post-soviet", "minimalist"],
             ["Croatia", "Zagreb", "HR", "Europe", ["red","white","blue"], "emblems", "post-soviet", "complex"],
             ["Czechia", "Prague", "CZ", "Europe", ["white","blue","red"], "horizontal", "mid-century", "minimalist"],
-            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
-            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "minimalist", "post-soviet", "minimalist"],
-            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
-            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "minimalist", "ancient", "minimalist"],
-            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "minimalist", "mid-century", "minimalist"],
+            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "horizontal", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "horizontal", "post-soviet", "minimalist"],
+            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "horizontal", "ancient", "minimalist", "twin-nordic-cross"],
+            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "vertical", "ancient", "minimalist"],
+            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "horizontal", "mid-century", "minimalist"],
             ["Greece", "Athens", "GR", "Europe", ["blue","white"], "horizontal", "mid-century", "minimalist"],
-            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "minimalist", "mid-century", "minimalist"],
-            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "minimalist", "mid-century", "minimalist", "twin-nordic-cross"],
-            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "minimalist", "ancient", "minimalist", "twin-ireland-ivory"],
-            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "minimalist", "mid-century", "minimalist", "twin-ireland-ivory"],
+            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "horizontal", "mid-century", "minimalist"],
+            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "horizontal", "mid-century", "minimalist", "twin-nordic-cross"],
+            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "vertical", "ancient", "minimalist", "twin-ireland-ivory"],
+            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "vertical", "mid-century", "minimalist", "twin-ireland-ivory"],
             ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", "modern", "intermediate"],
-            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "minimalist", "post-soviet", "minimalist", "twin-latvia-austria"],
-            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "minimalist", "post-soviet", "minimalist"],
-            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "minimalist", "mid-century", "minimalist", "twin-lux-netherlands"],
-            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "emblems", "mid-century", "intermediate"],
-            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "animal", "post-soviet", "complex"],
-            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "minimalist", "ancient", "minimalist", "twin-indo-monaco"],
+            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "horizontal", "post-soviet", "minimalist", "twin-latvia-austria"],
+            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "horizontal", "post-soviet", "minimalist"],
+            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "horizontal", "mid-century", "minimalist", "twin-lux-netherlands"],
+            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "vertical", "mid-century", "intermediate"],
+            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "vertical", "post-soviet", "complex"],
+            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "horizontal", "ancient", "minimalist", "twin-indo-monaco"],
             ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "animal", "modern", "complex"],
-            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "minimalist", "ancient", "minimalist", "twin-lux-netherlands"],
+            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "horizontal", "ancient", "minimalist", "twin-lux-netherlands"],
             ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "sun", "post-soviet", "minimalist"],
-            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
-            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "minimalist", "ancient", "minimalist", "twin-indo-monaco"],
-            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "emblems", "mid-century", "complex"],
-            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "minimalist", "post-soviet", "minimalist", "twin-romania-chad"],
+            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "horizontal", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "horizontal", "ancient", "minimalist", "twin-indo-monaco"],
+            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "vertical", "mid-century", "complex"],
+            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "vertical", "post-soviet", "minimalist", "twin-romania-chad"],
             ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal", "post-soviet", "minimalist", "twin-panslav-horizontals"],
-            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "emblems", "ancient", "complex"],
-            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "animal", "modern", "complex"],
-            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
-            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
-            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "emblems", "mid-century", "complex"],
-            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
-            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "minimalist", "ancient", "minimalist"],
-            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "minimalist", "post-soviet", "minimalist"],
-            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "minimalist", "ancient", "minimalist"],
-            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "emblems", "mid-century", "complex"],
+            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "horizontal", "ancient", "complex"],
+            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "horizontal", "modern", "complex"],
+            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "horizontal", "post-soviet", "intermediate", "twin-panslav-horizontals"],
+            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "horizontal", "post-soviet", "intermediate", "twin-panslav-horizontals"],
+            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "horizontal", "mid-century", "complex"],
+            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "horizontal", "ancient", "minimalist", "twin-nordic-cross"],
+            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "emblems", "ancient", "minimalist"],
+            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "horizontal", "post-soviet", "minimalist"],
+            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "horizontal", "ancient", "minimalist"],
+            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "vertical", "mid-century", "complex"],
 
             // AFRICA (54 Countries)
-            ["Algeria", "Algiers", "DZ", "Africa", ["green","white","red"], "crescent", "mid-century", "intermediate"],
-            ["Angola", "Luanda", "AO", "Africa", ["red","black","yellow"], "emblems", "mid-century", "intermediate"],
+            ["Algeria", "Algiers", "DZ", "Africa", ["green","white","red"], "vertical", "mid-century", "intermediate"],
+            ["Angola", "Luanda", "AO", "Africa", ["red","black","yellow"], "horizontal", "mid-century", "intermediate"],
             ["Benin", "Porto-Novo", "BJ", "Africa", ["green","yellow","red"], "horizontal", "mid-century", "minimalist"],
             ["Botswana", "Gaborone", "BW", "Africa", ["blue","white","black"], "horizontal", "mid-century", "minimalist"],
-            ["Burkina Faso", "Ouagadougou", "BF", "Africa", ["red","green","yellow"], "stars", "mid-century", "minimalist"],
+            ["Burkina Faso", "Ouagadougou", "BF", "Africa", ["red","green","yellow"], "horizontal", "mid-century", "minimalist"],
             ["Burundi", "Gitega", "BI", "Africa", ["red","green","white", "yellow"], "stars", "mid-century", "complex"],
-            ["Cameroon", "Yaoundé", "CM", "Africa", ["green","red","yellow"], "stars", "mid-century", "intermediate", "twin-panafrican-vertical"],
+            ["Cameroon", "Yaoundé", "CM", "Africa", ["green","red","yellow"], "vertical", "mid-century", "intermediate", "twin-panafrican-vertical"],
             ["Cape Verde", "Praia", "CV", "Africa", ["blue","white","red","yellow"], "stars", "post-soviet", "intermediate"],
-            ["Central African Republic", "Bangui", "CF", "Africa", ["blue","white","green","yellow","red"], "stars", "mid-century", "intermediate"],
-            ["Chad", "N'Djamena", "TD", "Africa", ["blue","yellow","red"], "minimalist", "mid-century", "minimalist", "twin-romania-chad"],
-            ["Comoros", "Moroni", "KM", "Africa", ["yellow","white", "red", "blue", "green"], "crescent", "modern", "intermediate"],
+            ["Central African Republic", "Bangui", "CF", "Africa", ["blue","white","green","yellow","red"], "horizontal", "mid-century", "intermediate"],
+            ["Chad", "N'Djamena", "TD", "Africa", ["blue","yellow","red"], "vertical", "mid-century", "minimalist", "twin-romania-chad"],
+            ["Comoros", "Moroni", "KM", "Africa", ["yellow","white", "red", "blue", "green"], "horizontal", "modern", "intermediate"],
             ["Republic of the Congo", "Brazzaville", "CG", "Africa", ["green","yellow","red"], "horizontal", "mid-century", "minimalist"],
             ["DR Congo", "Kinshasa", "CD", "Africa", ["blue","yellow","red"], "stars", "modern", "intermediate"],
-            ["Djibouti", "Djibouti", "DJ", "Africa", ["blue","green","white","red"], "stars", "mid-century", "minimalist"],
-            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "animal", "mid-century", "intermediate", "twin-arab-stripes"],
-            ["Equatorial Guinea", "Malabo", "GQ", "Africa", ["green","white","red","blue"], "emblems", "mid-century", "complex"],
+            ["Djibouti", "Djibouti", "DJ", "Africa", ["blue","green","white","red"], "horizontal", "mid-century", "minimalist"],
+            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "horizontal", "mid-century", "intermediate", "twin-arab-stripes"],
+            ["Equatorial Guinea", "Malabo", "GQ", "Africa", ["green","white","red","blue"], "horizontal", "mid-century", "complex"],
             ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "emblems", "post-soviet", "complex"],
-            ["Eswatini", "Mbabane", "SZ", "Africa", ["blue","yellow","red","black","white"], "emblems", "mid-century", "complex"],
-            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "sun", "post-soviet", "intermediate"],
+            ["Eswatini", "Mbabane", "SZ", "Africa", ["blue","yellow","red","black","white"], "horizontal", "mid-century", "complex"],
+            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "central-disk", "post-soviet", "intermediate"],
             ["Gabon", "Libreville", "GA", "Africa", ["green","yellow","blue"], "horizontal", "mid-century", "minimalist"],
             ["Gambia", "Banjul", "GM", "Africa", ["red","blue","green","white"], "horizontal", "mid-century", "minimalist"],
-            ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "stars", "mid-century", "intermediate"],
-            ["Guinea", "Conakry", "GN", "Africa", ["red","yellow","green"], "minimalist", "mid-century", "minimalist", "twin-panafrican-vertical"],
-            ["Guinea-Bissau", "Bissau", "GW", "Africa", ["red","yellow","green","black"], "stars", "mid-century", "intermediate"],
-            ["Ivory Coast", "Yamoussoukro", "CI", "Africa", ["orange","white","green"], "minimalist", "mid-century", "minimalist", "twin-ireland-ivory"],
-            ["Kenya", "Nairobi", "KE", "Africa", ["black","red","green","white"], "emblems", "mid-century", "intermediate"],
-            ["Lesotho", "Maseru", "LS", "Africa", ["blue","white","green","black"], "emblems", "modern", "intermediate"],
-            ["Liberia", "Monrovia", "LR", "Africa", ["red","white","blue"], "stars", "ancient", "intermediate"],
-            ["Libya", "Tripoli", "LY", "Africa", ["red","black","green","white"], "crescent", "modern", "intermediate"],
+            ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "horizontal", "mid-century", "intermediate"],
+            ["Guinea", "Conakry", "GN", "Africa", ["red","yellow","green"], "vertical", "mid-century", "minimalist", "twin-panafrican-vertical"],
+            ["Guinea-Bissau", "Bissau", "GW", "Africa", ["red","yellow","green","black"], "horizontal", "mid-century", "intermediate"],
+            ["Ivory Coast", "Yamoussoukro", "CI", "Africa", ["orange","white","green"], "vertical", "mid-century", "minimalist", "twin-ireland-ivory"],
+            ["Kenya", "Nairobi", "KE", "Africa", ["black","red","green","white"], "horizontal", "mid-century", "intermediate"],
+            ["Lesotho", "Maseru", "LS", "Africa", ["blue","white","green","black"], "horizontal", "modern", "intermediate"],
+            ["Liberia", "Monrovia", "LR", "Africa", ["red","white","blue"], "horizontal", "ancient", "intermediate"],
+            ["Libya", "Tripoli", "LY", "Africa", ["red","black","green","white"], "horizontal", "modern", "intermediate"],
             ["Madagascar", "Antananarivo", "MG", "Africa", ["white","red","green"], "horizontal", "mid-century", "minimalist"],
-            ["Malawi", "Lilongwe", "MW", "Africa", ["black","red","green"], "sun", "mid-century", "intermediate"],
-            ["Mali", "Bamako", "ML", "Africa", ["green","yellow","red"], "minimalist", "mid-century", "minimalist", "twin-panafrican-vertical"],
-            ["Mauritania", "Nouakchott", "MR", "Africa", ["green","yellow","red"], "crescent", "modern", "intermediate"],
+            ["Malawi", "Lilongwe", "MW", "Africa", ["black","red","green"], "horizontal", "mid-century", "intermediate"],
+            ["Mali", "Bamako", "ML", "Africa", ["green","yellow","red"], "vertical", "mid-century", "minimalist", "twin-panafrican-vertical"],
+            ["Mauritania", "Nouakchott", "MR", "Africa", ["green","yellow","red"], "horizontal", "modern", "intermediate"],
             ["Mauritius", "Port Louis", "MU", "Africa", ["red","blue","yellow","green"], "horizontal", "mid-century", "minimalist"],
             ["Morocco", "Rabat", "MA", "Africa", ["red","green"], "stars", "mid-century", "minimalist"],
-            ["Mozambique", "Maputo", "MZ", "Africa", ["green","black","yellow","white","red"], "stars", "mid-century", "complex"],
-            ["Namibia", "Windhoek", "NA", "Africa", ["blue","red","green","white","yellow"], "sun", "post-soviet", "intermediate"],
+            ["Mozambique", "Maputo", "MZ", "Africa", ["green","black","yellow","white","red"], "horizontal", "mid-century", "complex"],
+            ["Namibia", "Windhoek", "NA", "Africa", ["blue","red","green","white","yellow"], "horizontal", "post-soviet", "intermediate"],
             ["Niger", "Niamey", "NE", "Africa", ["orange","white","green"], "central-disk", "mid-century", "minimalist"],
             ["Nigeria", "Abuja", "NG", "Africa", ["green","white"], "vertical", "mid-century", "minimalist"],
-            ["Rwanda", "Kigali", "RW", "Africa", ["blue","yellow","green"], "sun", "modern", "intermediate"],
-            ["São Tomé and Príncipe", "São Tomé", "ST", "Africa", ["green","yellow","red","black"], "stars", "mid-century", "intermediate"],
-            ["Senegal", "Dakar", "SN", "Africa", ["green","yellow","red"], "stars", "mid-century", "intermediate", "twin-panafrican-vertical"],
+            ["Rwanda", "Kigali", "RW", "Africa", ["blue","yellow","green"], "horizontal", "modern", "intermediate"],
+            ["São Tomé and Príncipe", "São Tomé", "ST", "Africa", ["green","yellow","red","black"], "horizontal", "mid-century", "intermediate"],
+            ["Senegal", "Dakar", "SN", "Africa", ["green","yellow","red"], "vertical", "mid-century", "intermediate", "twin-panafrican-vertical"],
             ["Seychelles", "Victoria", "SC", "Africa", ["blue","yellow","red","white","green"], "horizontal", "post-soviet", "minimalist"],
             ["Sierra Leone", "Freetown", "SL", "Africa", ["green","white","blue"], "horizontal", "mid-century", "minimalist"],
             ["Somalia", "Mogadishu", "SO", "Africa", ["blue","white"], "stars", "mid-century", "minimalist"],
             ["South Africa", "Pretoria", "ZA", "Africa", ["red","blue","green","black","white","yellow"], "horizontal", "post-soviet", "complex"],
-            ["South Sudan", "Juba", "SS", "Africa", ["black","red","green","blue","yellow","white"], "stars", "modern", "complex"],
+            ["South Sudan", "Juba", "SS", "Africa", ["black","red","green","blue","yellow","white"], "horizontal", "modern", "complex"],
             ["Sudan", "Khartoum", "SD", "Africa", ["red","white","black","green"], "horizontal", "mid-century", "minimalist"],
             ["Tanzania", "Dodoma", "TZ", "Africa", ["green","yellow","black","blue"], "horizontal", "mid-century", "minimalist"],
-            ["Togo", "Lomé", "TG", "Africa", ["green","yellow","red","white"], "stars", "mid-century", "intermediate"],
-            ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "crescent", "mid-century", "intermediate", "twin-turk-tunisia"],
-            ["Uganda", "Kampala", "UG", "Africa", ["black","yellow","red","white"], "animal", "mid-century", "complex"],
-            ["Zambia", "Lusaka", "ZM", "Africa", ["green","red","black","orange"], "animal", "mid-century", "intermediate"],
-            ["Zimbabwe", "Harare", "ZW", "Africa", ["green","yellow","red","black","white"], "animal", "post-soviet", "complex"],
+            ["Togo", "Lomé", "TG", "Africa", ["green","yellow","red","white"], "horizontal", "mid-century", "intermediate"],
+            ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "central-disk", "mid-century", "intermediate", "twin-turk-tunisia"],
+            ["Uganda", "Kampala", "UG", "Africa", ["black","yellow","red","white"], "horizontal", "mid-century", "complex"],
+            ["Zambia", "Lusaka", "ZM", "Africa", ["green","red","black","orange"], "horizontal", "mid-century", "intermediate"],
+            ["Zimbabwe", "Harare", "ZW", "Africa", ["green","yellow","red","black","white"], "horizontal", "post-soviet", "complex"],
 
             // AMERICAS (35 Countries - North & South combined)
             ["Antigua and Barbuda", "St. John's", "AG", "Americas", ["black","blue","white","red","yellow"], "sun", "mid-century", "intermediate"],
-            ["Argentina", "Buenos Aires", "AR", "Americas", ["blue","white","yellow"], "sun", "ancient", "intermediate"],
+            ["Argentina", "Buenos Aires", "AR", "Americas", ["blue","white","yellow"], "central-disk", "ancient", "intermediate"],
             ["Bahamas", "Nassau", "BS", "Americas", ["blue","yellow","black"], "horizontal", "mid-century", "minimalist"],
             ["Barbados", "Bridgetown", "BB", "Americas", ["blue","yellow","black"], "vertical", "mid-century", "intermediate"],
-            ["Belize", "Belmopan", "BZ", "Americas", ["blue","red","white"], "emblems", "mid-century", "complex"],
+            ["Belize", "Belmopan", "BZ", "Americas", ["blue","red","white"], "horizontal", "mid-century", "complex"],
             ["Bolivia", "Sucre", "BO", "Americas", ["red","yellow","green"], "horizontal", "ancient", "minimalist"],
-            ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "stars", "mid-century", "intermediate"],
-            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "emblems", "mid-century", "intermediate"],
-            ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "central-disk", "mid-century", "intermediate"],
+            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "vertical", "mid-century", "intermediate"],
+            ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
             ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal", "ancient", "minimalist"],
             ["Costa Rica", "San José", "CR", "Americas", ["blue","white","red"], "horizontal", "ancient", "minimalist"],
-            ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
-            ["Dominica", "Roseau", "DM", "Americas", ["green","yellow","black","white","red"], "animal", "mid-century", "complex"],
+            ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
+            ["Dominica", "Roseau", "DM", "Americas", ["green","yellow","black","white","red"], "central-disk", "mid-century", "complex"],
             ["Dominican Republic", "Santo Domingo", "DO", "Americas", ["blue","white","red"], "emblems", "ancient", "complex"],
-            ["Ecuador", "Quito", "EC", "Americas", ["yellow","blue","red"], "emblems", "ancient", "complex"],
-            ["El Salvador", "San Salvador", "SV", "Americas", ["blue","white"], "emblems", "mid-century", "complex"],
+            ["Ecuador", "Quito", "EC", "Americas", ["yellow","blue","red"], "horizontal", "ancient", "complex"],
+            ["El Salvador", "San Salvador", "SV", "Americas", ["blue","white"], "horizontal", "mid-century", "complex"],
             ["Grenada", "St. George's", "GD", "Americas", ["red","yellow","green"], "stars", "mid-century", "intermediate"],
-            ["Guatemala", "Guatemala City", "GT", "Americas", ["blue","white","green"], "emblems", "ancient", "complex"],
+            ["Guatemala", "Guatemala City", "GT", "Americas", ["blue","white","green"], "vertical", "ancient", "complex"],
             ["Guyana", "Georgetown", "GY", "Americas", ["green","yellow","red","black","white"], "horizontal", "mid-century", "minimalist"],
-            ["Haiti", "Port-au-Prince", "HT", "Americas", ["blue","red","white"], "emblems", "ancient", "complex"],
-            ["Honduras", "Tegucigalpa", "HN", "Americas", ["blue","white"], "stars", "ancient", "intermediate"],
-            ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "minimalist", "mid-century", "minimalist"],
-            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "animal", "mid-century", "complex"],
-            ["Nicaragua", "Managua", "NI", "Americas", ["blue","white"], "emblems", "ancient", "complex"],
-            ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "stars", "mid-century", "intermediate"],
-            ["Paraguay", "Asunción", "PY", "Americas", ["red","white","blue"], "emblems", "ancient", "complex"],
-            ["Peru", "Lima", "PE", "Americas", ["red","white"], "minimalist", "ancient", "minimalist"],
-            ["Saint Kitts and Nevis", "Basseterre", "KN", "Americas", ["green","black","red","yellow","white"], "stars", "mid-century", "intermediate"],
-            ["Saint Lucia", "Castries", "LC", "Americas", ["blue","yellow","black","white"], "minimalist", "mid-century", "minimalist"],
-            ["Saint Vincent and the Grenadines", "Kingstown", "VC", "Americas", ["blue","yellow","green"], "minimalist", "mid-century", "minimalist"],
-            ["Suriname", "Paramaribo", "SR", "Americas", ["green","white","red","yellow"], "stars", "mid-century", "minimalist"],
-            ["Trinidad and Tobago", "Port of Spain", "TT", "Americas", ["red","black","white"], "minimalist", "mid-century", "minimalist"],
-            ["United States", "Washington D.C.", "US", "Americas", ["red","white","blue"], "stars", "ancient", "intermediate"],
-            ["Uruguay", "Montevideo", "UY", "Americas", ["blue","white","yellow"], "sun", "ancient", "intermediate"],
-            ["Venezuela", "Caracas", "VE", "Americas", ["yellow","blue","red","white"], "stars", "modern", "intermediate"],
+            ["Haiti", "Port-au-Prince", "HT", "Americas", ["blue","red","white"], "horizontal", "ancient", "complex"],
+            ["Honduras", "Tegucigalpa", "HN", "Americas", ["blue","white"], "horizontal", "ancient", "intermediate"],
+            ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "horizontal", "mid-century", "minimalist"],
+            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "vertical", "mid-century", "complex"],
+            ["Nicaragua", "Managua", "NI", "Americas", ["blue","white"], "horizontal", "ancient", "complex"],
+            ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "horizontal", "mid-century", "intermediate"],
+            ["Paraguay", "Asunción", "PY", "Americas", ["red","white","blue"], "horizontal", "ancient", "complex"],
+            ["Peru", "Lima", "PE", "Americas", ["red","white"], "vertical", "ancient", "minimalist"],
+            ["Saint Kitts and Nevis", "Basseterre", "KN", "Americas", ["green","black","red","yellow","white"], "horizontal", "mid-century", "intermediate"],
+            ["Saint Lucia", "Castries", "LC", "Americas", ["blue","yellow","black","white"], "horizontal", "mid-century", "minimalist"],
+            ["Saint Vincent and the Grenadines", "Kingstown", "VC", "Americas", ["blue","yellow","green"], "vertical", "mid-century", "minimalist"],
+            ["Suriname", "Paramaribo", "SR", "Americas", ["green","white","red","yellow"], "horizontal", "mid-century", "minimalist"],
+            ["Trinidad and Tobago", "Port of Spain", "TT", "Americas", ["red","black","white"], "horizontal", "mid-century", "minimalist"],
+            ["United States", "Washington D.C.", "US", "Americas", ["red","white","blue"], "horizontal", "ancient", "intermediate"],
+            ["Uruguay", "Montevideo", "UY", "Americas", ["blue","white","yellow"], "horizontal", "ancient", "intermediate"],
+            ["Venezuela", "Caracas", "VE", "Americas", ["yellow","blue","red","white"], "horizontal", "modern", "intermediate"],
 
             // OCEANIA (14 Countries)
-            ["Australia", "Canberra", "AU", "Oceania", ["blue","white","red"], "stars", "ancient", "intermediate"],
-            ["Fiji", "Suva", "FJ", "Oceania", ["blue","white","red","green","yellow"], "emblems", "mid-century", "complex"],
-            ["Kiribati", "Tarawa", "KI", "Oceania", ["red","yellow","blue","white"], "sun", "mid-century", "complex"],
-            ["Marshall Islands", "Majuro", "MH", "Oceania", ["blue","orange","white"], "sun", "mid-century", "intermediate"],
+            ["Australia", "Canberra", "AU", "Oceania", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
+            ["Fiji", "Suva", "FJ", "Oceania", ["blue","white","red","green","yellow"], "horizontal", "mid-century", "complex"],
+            ["Kiribati", "Tarawa", "KI", "Oceania", ["red","yellow","blue","white"], "horizontal", "mid-century", "complex"],
+            ["Marshall Islands", "Majuro", "MH", "Oceania", ["blue","orange","white"], "horizontal", "mid-century", "intermediate"],
             ["Micronesia", "Palikir", "FM", "Oceania", ["blue","white"], "stars", "mid-century", "minimalist"],
-            ["Nauru", "Yaren", "NR", "Oceania", ["blue","yellow","white"], "stars", "mid-century", "minimalist"],
-            ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "stars", "ancient", "intermediate"],
+            ["Nauru", "Yaren", "NR", "Oceania", ["blue","yellow","white"], "horizontal", "mid-century", "minimalist"],
+            ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
             ["Palau", "Ngerulmud", "PW", "Oceania", ["blue","yellow"], "central-disk", "mid-century", "minimalist"],
-            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "animal", "mid-century", "intermediate"],
-            ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "stars", "mid-century", "intermediate"],
-            ["Solomon Islands", "Honiara", "SB", "Oceania", ["blue","yellow","green","white"], "stars", "mid-century", "intermediate"],
-            ["Tonga", "Nuku'alofa", "TO", "Oceania", ["red","white"], "emblems", "ancient", "minimalist"],
-            ["Tuvalu", "Funafuti", "TV", "Oceania", ["blue","yellow", "white", "red"], "stars", "mid-century", "intermediate"],
-            ["Vanuatu", "Port Vila", "VU", "Oceania", ["red","green","black","yellow"], "emblems", "mid-century", "intermediate"]
+            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "horizontal", "mid-century", "intermediate"],
+            ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "horizontal", "mid-century", "intermediate"],
+            ["Solomon Islands", "Honiara", "SB", "Oceania", ["blue","yellow","green","white"], "horizontal", "mid-century", "intermediate"],
+            ["Tonga", "Nuku'alofa", "TO", "Oceania", ["red","white"], "horizontal", "ancient", "minimalist"],
+            ["Tuvalu", "Funafuti", "TV", "Oceania", ["blue","yellow", "white", "red"], "horizontal", "mid-century", "intermediate"],
+            ["Vanuatu", "Port Vila", "VU", "Oceania", ["red","green","black","yellow"], "horizontal", "mid-century", "intermediate"]
         ];
 
         const twinProfiles = {
@@ -500,27 +446,11 @@
         let activeMainMode = 'learning';
         let activeSubMode = 'explorer';
         
-        let filters = {
-            continent: 'all', visual: 'all', colorVal: 'all', colorCount: 'all',
-            era: 'all', complexity: 'all', letter: 'all'
-        };
+        let filters = { continent: 'all', visual: 'all' };
 
         let chosenQuizContinents = new Set(["Europe", "Asia", "Africa", "Americas", "Oceania"]);
         let activeMarathonContinent = "Europe";
         let currentQuizCountries = [];
-
-        function setupAlphabetGrid() {
-            const row = document.getElementById('alphabet-matrix');
-            if (!row) return;
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").forEach(l => {
-                const button = document.createElement('button');
-                button.className = 'filter-btn';
-                button.innerText = l;
-                button.setAttribute('data-letter', l);
-                button.onclick = function() { setFilter('letter', l.toLowerCase(), this); };
-                row.appendChild(button);
-            });
-        }
 
         function switchMainMode(mode) {
             activeMainMode = mode;
@@ -595,40 +525,7 @@
             target.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             target.classList.add('active');
             filters[key] = value;
-            
-            if (key !== 'letter') evalLetterAvailability();
             renderExplorer();
-        }
-
-        function evalLetterAvailability() {
-            const currentFilteredPool = dataset.filter(item => {
-                if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
-                if (filters.visual !== 'all' && item.visual !== filters.visual) return false;
-                if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
-                if (filters.era !== 'all' && item.era !== filters.era) return false;
-                if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
-                if (filters.colorCount === '2' && item.colors.length !== 2) return false;
-                if (filters.colorCount === '3' && item.colors.length !== 3) return false;
-                if (filters.colorCount === '4plus' && item.colors.length < 4) return false;
-                return true;
-            });
-
-            const activeInitials = new Set(currentFilteredPool.map(c => c.initial));
-            const letters = document.getElementById('alphabet-matrix').querySelectorAll('.filter-btn');
-            
-            letters.forEach(btn => {
-                const l = btn.getAttribute('data-letter');
-                if(!l) return;
-                
-                if(!activeInitials.has(l)) {
-                    btn.disabled = true;
-                    if(filters.letter === l.toLowerCase()) {
-                        setFilter('letter', 'all', btn.parentElement.firstElementChild);
-                    }
-                } else {
-                    btn.disabled = false;
-                }
-            });
         }
 
         function createCardNode(item) {
@@ -641,7 +538,6 @@
                 <div class="card-continent">${item.continent}</div>
                 <div class="card-tags">
                     <span class="card-tag">${item.visual}</span>
-                    <span class="card-tag">${item.complexity}</span>
                 </div>
             `;
             return block;
@@ -655,13 +551,6 @@
             let result = dataset.filter(item => {
                 if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
                 if (filters.visual !== 'all' && item.visual !== filters.visual) return false;
-                if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
-                if (filters.era !== 'all' && item.era !== filters.era) return false;
-                if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
-                if (filters.letter !== 'all' && item.initial.toLowerCase() !== filters.letter) return false;
-                if (filters.colorCount === '2' && item.colors.length !== 2) return false;
-                if (filters.colorCount === '3' && item.colors.length !== 3) return false;
-                if (filters.colorCount === '4plus' && item.colors.length < 4) return false;
                 return true;
             });
 
@@ -848,8 +737,6 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            setupAlphabetGrid();
-            evalLetterAvailability();
             renderExplorer();
         });
     </script>
