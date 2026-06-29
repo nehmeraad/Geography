@@ -6,7 +6,7 @@
     <title>GeoMaster Global Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=600;700&family=Inter:wght=400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght=400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #F8FAFC;
@@ -113,7 +113,6 @@
         <button class="main-tab-btn" id="main-tab-testing" onclick="switchMainMode('testing')">Testing Ground</button>
     </div>
 
-    <!-- LEARNING HUB INTERFACE -->
     <div id="learning-hub-view">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer</button>
@@ -168,7 +167,6 @@
         </div>
     </div>
 
-    <!-- TESTING GROUND INTERFACE -->
     <div id="testing-ground-view" class="hidden">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-quizmode" onclick="switchTestSubMode('quiz')">Quiz Size Mode</button>
@@ -177,7 +175,6 @@
 
         <div class="game-layout">
             <div class="game-control-panel">
-                <!-- Config Options for Mode 1: Quiz Mode -->
                 <div id="panel-quiz-configs">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Target Continents:</div>
@@ -202,7 +199,6 @@
                     </div>
                 </div>
 
-                <!-- Config Options for Mode 2: Marathon Mode -->
                 <div id="panel-marathon-configs" class="hidden">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Active Continent:</div>
@@ -227,8 +223,7 @@
             </div>
             
             <div style="display: flex; flex-direction: column; gap: 10px;" id="game-main-matrix-rows-container">
-                <!-- Dynamic Rows -->
-            </div>
+                </div>
         </div>
     </div>
 
@@ -302,6 +297,7 @@
             ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "cross", "twin-nordic-cross"],
             ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "vertical_tricolor", "twin-ireland-ivory"],
             ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "vertical_tricolor", "twin-ireland-ivory"],
+            ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", ""],
             ["Latvia", "Riga", "LV", "Europe", ["red","white"], "stripes", "twin-latvia-austria"],
             ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "horizontal_tricolor", ""],
             ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "horizontal_tricolor", "twin-lux-netherlands"],
@@ -313,7 +309,7 @@
             ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "disc", ""],
             ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "cross", "twin-nordic-cross"],
             ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "bicolor", "twin-indo-monaco"],
-            ["Portugal", "Presbon", "PT", "Europe", ["green","red","yellow"], "bicolor", ""],
+            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "bicolor", ""],
             ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-romania-chad"],
             ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals"],
             ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "bicolor", ""],
