@@ -6,7 +6,7 @@
     <title>GeoMaster Global Pro</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=600;700&family=Inter:wght=400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-main: #F8FAFC;
@@ -135,9 +135,7 @@
                         <button class="filter-btn" onclick="setFilter('visual', 'stars', this)">Stars</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'sun', this)">Sun</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'crescent', this)">Crescent</button>
-                        <button class="filter-btn" onclick="setFilter('visual', 'animal', this)">Animal / Fauna</button>
-                        <button class="filter-btn" onclick="setFilter('visual', 'flora', this)">Flora / Leaves</button>
-                        <button class="filter-btn" onclick="setFilter('visual', 'script', this)">Script</button>
+                        <button class="filter-btn" onclick="setFilter('visual', 'fauna-flora', this)">Fauna/Flora</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'central-disk', this)">Central Disk</button>
                         <button class="filter-btn" onclick="setFilter('visual', 'emblems', this)">Emblems</button>
                     </div>
@@ -269,16 +267,16 @@
             ["Azerbaijan", "Baku", "AZ", "Asia", ["blue","red","green","white"], "crescent", "mid-century", "intermediate"],
             ["Bahrain", "Manama", "BH", "Asia", ["red","white"], "vertical", "modern", "intermediate"],
             ["Bangladesh", "Dhaka", "BD", "Asia", ["green","red"], "central-disk", "mid-century", "intermediate"],
-            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "animal", "mid-century", "complex"],
+            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "fauna-flora", "mid-century", "complex"],
             ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "emblems", "mid-century", "complex"],
             ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "emblems", "mid-century", "intermediate"],
             ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", "mid-century", "intermediate"],
-            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "flora", "mid-century", "intermediate"],
+            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "fauna-flora", "mid-century", "intermediate"],
             ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "emblems", "modern", "intermediate"],
             ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "central-disk", "mid-century", "intermediate"],
             ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "horizontal", "mid-century", "intermediate", "twin-indo-monaco"],
-            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "script", "mid-century", "intermediate"],
-            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "script", "modern", "intermediate", "twin-arab-stripes"],
+            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "horizontal", "mid-century", "intermediate"],
+            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "horizontal", "modern", "intermediate", "twin-arab-stripes"],
             ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stars", "mid-century", "intermediate"],
             ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "central-disk", "ancient", "intermediate"],
             ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stars", "mid-century", "intermediate", "twin-jordan-palestine"],
@@ -286,7 +284,7 @@
             ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "horizontal", "mid-century", "intermediate"],
             ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "sun", "modern", "intermediate"],
             ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "central-disk", "mid-century", "intermediate"],
-            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "flora", "mid-century", "intermediate"],
+            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "fauna-flora", "mid-century", "intermediate"],
             ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "crescent", "mid-century", "intermediate"],
             ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", "mid-century", "intermediate"],
             ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical", "mid-century", "intermediate"],
@@ -298,10 +296,10 @@
             ["Palestine", "Jerusalem", "PS", "Asia", ["black","white","green","red"], "horizontal", "mid-century", "intermediate", "twin-jordan-palestine"],
             ["Philippines", "Manila", "PH", "Asia", ["blue","red","white","yellow"], "sun", "ancient", "intermediate"],
             ["Qatar", "Doha", "QA", "Asia", ["white","red"], "vertical", "mid-century", "intermediate"],
-            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "script", "mid-century", "intermediate"],
+            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "horizontal", "mid-century", "intermediate"],
             ["Singapore", "Singapore", "SG", "Asia", ["red","white"], "crescent", "mid-century", "intermediate"],
             ["South Korea", "Seoul", "KR", "Asia", ["white","black","red","blue"], "central-disk", "mid-century", "intermediate"],
-            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "animal", "mid-century", "complex"],
+            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "fauna-flora", "mid-century", "complex"],
             ["Syria", "Damascus", "SY", "Asia", ["red","white","black","green"], "stars", "mid-century", "intermediate"],
             ["Taiwan", "Taipei", "TW", "Asia", ["red","blue","white"], "sun", "mid-century", "intermediate"],
             ["Tajikistan", "Dushanbe", "TJ", "Asia", ["red","white","green","yellow"], "stars", "post-soviet", "intermediate"],
@@ -315,7 +313,7 @@
             ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "horizontal", "post-soviet", "intermediate", "twin-arab-stripes"],
 
             // EUROPE (44 Countries)
-            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "animal", "mid-century", "intermediate"],
+            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "fauna-flora", "mid-century", "intermediate"],
             ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "emblems", "mid-century", "complex"],
             ["Austria", "Vienna", "AT", "Europe", ["red","white"], "horizontal", "ancient", "intermediate", "twin-latvia-austria"],
             ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "horizontal", "post-soviet", "intermediate"],
@@ -339,9 +337,9 @@
             ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "horizontal", "post-soviet", "intermediate"],
             ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "horizontal", "mid-century", "intermediate", "twin-lux-netherlands"],
             ["Malta", "Valletta", "MT", "Europe", ["white","red"], "emblems", "mid-century", "intermediate"],
-            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "animal", "post-soviet", "complex"],
+            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "fauna-flora", "post-soviet", "complex"],
             ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "horizontal", "ancient", "intermediate", "twin-indo-monaco"],
-            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "animal", "modern", "complex"],
+            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "fauna-flora", "modern", "complex"],
             ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "horizontal", "ancient", "intermediate", "twin-lux-netherlands"],
             ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "sun", "post-soviet", "intermediate"],
             ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "horizontal", "ancient", "intermediate", "twin-nordic-cross"],
@@ -350,7 +348,7 @@
             ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "vertical", "post-soviet", "intermediate", "twin-romania-chad"],
             ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal", "post-soviet", "intermediate", "twin-panslav-horizontals"],
             ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "emblems", "ancient", "complex"],
-            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "animal", "modern", "complex"],
+            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "fauna-flora", "modern", "complex"],
             ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
             ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
             ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "emblems", "mid-century", "complex"],
@@ -375,9 +373,9 @@
             ["Republic of the Congo", "Brazzaville", "CG", "Africa", ["green","yellow","red"], "horizontal", "mid-century", "intermediate"],
             ["DR Congo", "Kinshasa", "CD", "Africa", ["blue","yellow","red"], "stars", "modern", "intermediate"],
             ["Djibouti", "Djibouti", "DJ", "Africa", ["blue","green","white","red"], "stars", "mid-century", "intermediate"],
-            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "animal", "mid-century", "intermediate", "twin-arab-stripes"],
+            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "fauna-flora", "mid-century", "intermediate", "twin-arab-stripes"],
             ["Equatorial Guinea", "Malabo", "GQ", "Africa", ["green","white","red","blue"], "emblems", "mid-century", "complex"],
-            ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "flora", "post-soviet", "complex"],
+            ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "fauna-flora", "post-soviet", "complex"],
             ["Eswatini", "Mbabane", "SZ", "Africa", ["blue","yellow","red","black","white"], "emblems", "mid-century", "complex"],
             ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "central-disk", "post-soviet", "intermediate"],
             ["Gabon", "Libreville", "GA", "Africa", ["green","yellow","blue"], "horizontal", "mid-century", "intermediate"],
@@ -412,9 +410,9 @@
             ["Tanzania", "Dodoma", "TZ", "Africa", ["green","yellow","black","blue"], "horizontal", "mid-century", "intermediate"],
             ["Togo", "Lomé", "TG", "Africa", ["green","yellow","red","white"], "stars", "mid-century", "intermediate"],
             ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "crescent", "mid-century", "intermediate", "twin-turk-tunisia"],
-            ["Uganda", "Kampala", "UG", "Africa", ["black","yellow","red","white"], "animal", "mid-century", "complex"],
-            ["Zambia", "Lusaka", "ZM", "Africa", ["green","red","black","orange"], "animal", "mid-century", "intermediate"],
-            ["Zimbabwe", "Harare", "ZW", "Africa", ["green","yellow","red","black","white"], "animal", "post-soviet", "complex"],
+            ["Uganda", "Kampala", "UG", "Africa", ["black","yellow","red","white"], "fauna-flora", "mid-century", "complex"],
+            ["Zambia", "Lusaka", "ZM", "Africa", ["green","red","black","orange"], "fauna-flora", "mid-century", "intermediate"],
+            ["Zimbabwe", "Harare", "ZW", "Africa", ["green","yellow","red","black","white"], "fauna-flora", "post-soviet", "complex"],
 
             // AMERICAS (35 Countries)
             ["Antigua and Barbuda", "St. John's", "AG", "Americas", ["black","blue","white","red","yellow"], "sun", "mid-century", "intermediate"],
@@ -424,12 +422,12 @@
             ["Belize", "Belmopan", "BZ", "Americas", ["blue","red","white"], "emblems", "mid-century", "complex"],
             ["Bolivia", "Sucre", "BO", "Americas", ["red","yellow","green"], "horizontal", "ancient", "intermediate"],
             ["Brazil", "Brasília", "BR", "Americas", ["green","yellow","blue","white"], "stars", "mid-century", "intermediate"],
-            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "flora", "mid-century", "intermediate"],
+            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "fauna-flora", "mid-century", "intermediate"],
             ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
             ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal", "ancient", "intermediate"],
             ["Costa Rica", "San José", "CR", "Americas", ["blue","white","red"], "horizontal", "ancient", "intermediate"],
             ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "stars", "ancient", "intermediate"],
-            ["Dominica", "Roseau", "DM", "Americas", ["green","yellow","black","white","red"], "animal", "mid-century", "complex"],
+            ["Dominica", "Roseau", "DM", "Americas", ["green","yellow","black","white","red"], "fauna-flora", "mid-century", "complex"],
             ["Dominican Republic", "Santo Domingo", "DO", "Americas", ["blue","white","red"], "emblems", "ancient", "complex"],
             ["Ecuador", "Quito", "EC", "Americas", ["yellow","blue","red"], "emblems", "ancient", "complex"],
             ["El Salvador", "San Salvador", "SV", "Americas", ["blue","white"], "emblems", "mid-century", "complex"],
@@ -439,7 +437,7 @@
             ["Haiti", "Port-au-Prince", "HT", "Americas", ["blue","red","white"], "emblems", "ancient", "complex"],
             ["Honduras", "Tegucigalpa", "HN", "Americas", ["blue","white"], "stars", "ancient", "intermediate"],
             ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "horizontal", "mid-century", "intermediate"],
-            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "animal", "mid-century", "complex"],
+            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red","yellow"], "fauna-flora", "mid-century", "complex"],
             ["Nicaragua", "Managua", "NI", "Americas", ["blue","white"], "emblems", "ancient", "complex"],
             ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "stars", "mid-century", "intermediate"],
             ["Paraguay", "Asunción", "PY", "Americas", ["red","white","blue"], "emblems", "ancient", "complex"],
@@ -462,7 +460,7 @@
             ["Nauru", "Yaren", "NR", "Oceania", ["blue","yellow","white"], "stars", "mid-century", "intermediate"],
             ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "stars", "ancient", "intermediate"],
             ["Palau", "Ngerulmud", "PW", "Oceania", ["blue","yellow"], "central-disk", "mid-century", "intermediate"],
-            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "animal", "mid-century", "intermediate"],
+            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow","white"], "fauna-flora", "mid-century", "intermediate"],
             ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "stars", "mid-century", "intermediate"],
             ["Solomon Islands", "Honiara", "SB", "Oceania", ["blue","yellow","green","white"], "stars", "mid-century", "intermediate"],
             ["Tonga", "Nuku'alofa", "TO", "Oceania", ["red","white"], "emblems", "ancient", "intermediate"],
