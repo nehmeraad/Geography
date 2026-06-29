@@ -106,6 +106,7 @@
         <button class="main-tab-btn" id="main-tab-testing" onclick="switchMainMode('testing')">Testing Ground</button>
     </div>
 
+    <!-- LEARNING HUB INTERFACE -->
     <div id="learning-hub-view">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer Matrix</button>
@@ -114,6 +115,7 @@
 
         <div id="explorer-panel">
             <div class="filter-section">
+                <!-- Continents -->
                 <div class="filter-group">
                     <div class="filter-label">Geographic Continents</div>
                     <div class="btn-row">
@@ -126,6 +128,7 @@
                     </div>
                 </div>
 
+                <!-- Visual Frameworks -->
                 <div class="filter-group">
                     <div class="filter-label">Visual Framework & Iconography</div>
                     <div class="btn-row">
@@ -143,6 +146,7 @@
                     </div>
                 </div>
 
+                <!-- Colors Presence -->
                 <div class="filter-group">
                     <div class="filter-label">Colors Present</div>
                     <div class="btn-row">
@@ -156,6 +160,7 @@
                     </div>
                 </div>
 
+                <!-- Color Count -->
                 <div class="filter-group">
                     <div class="filter-label">Color Count Limitation</div>
                     <div class="btn-row">
@@ -166,6 +171,7 @@
                     </div>
                 </div>
 
+                <!-- Eras -->
                 <div class="filter-group">
                     <div class="filter-label">Chronological Adoption Eras</div>
                     <div class="btn-row">
@@ -177,6 +183,7 @@
                     </div>
                 </div>
 
+                <!-- Design Complexity -->
                 <div class="filter-group">
                     <div class="filter-label">Design Complexity</div>
                     <div class="btn-row">
@@ -187,6 +194,7 @@
                     </div>
                 </div>
 
+                <!-- Alphabet Matrix -->
                 <div class="filter-group">
                     <div class="filter-label">Alphabetical Index</div>
                     <div class="btn-row" id="alphabet-matrix">
@@ -205,9 +213,10 @@
         </div>
     </div>
 
+    <!-- TESTING GROUND INTERFACE -->
     <div id="testing-ground-view" class="hidden">
         <div class="sub-tabs">
-            <button class="sub-tab-btn active" id="sub-tab-quizmode" onclick="switchTestSubMode('quiz')">Quiz Size Mode</button>
+            <button class="sub-tab-btn active" id="sub-tab-quizmode" onclick="switchTestSubMode('quiz')">Quiz Mode</button>
             <button class="sub-tab-btn" id="sub-tab-marathonmode" onclick="switchTestSubMode('marathon')">Continent Marathon Mode</button>
         </div>
 
@@ -231,7 +240,7 @@
                             <option value="8">8 Questions</option>
                             <option value="12">12 Questions</option>
                             <option value="16">16 Questions</option>
-                            <option value="all">Display All Matches</option>
+                            <option value="20">20 Questions</option>
                         </select>
                     </div>
                 </div>
@@ -349,11 +358,11 @@
             ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "minimalist", "ancient", "minimalist", "twin-indo-monaco"],
             ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "emblems", "mid-century", "complex"],
             ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "minimalist", "post-soviet", "minimalist", "twin-romania-chad"],
-            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "minimalist", "post-soviet", "minimalist", "twin-panslav-horizontals"],
+            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal", "post-soviet", "minimalist", "twin-panslav-horizontals"],
             ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "emblems", "ancient", "complex"],
             ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "animal", "modern", "complex"],
-            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate"],
-            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate"],
+            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
+            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "emblems", "post-soviet", "intermediate", "twin-panslav-horizontals"],
             ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "emblems", "mid-century", "complex"],
             ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "minimalist", "ancient", "minimalist", "twin-nordic-cross"],
             ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "minimalist", "ancient", "minimalist"],
@@ -467,7 +476,9 @@
             } else {
                 document.getElementById('learning-hub-view').classList.add('hidden');
                 document.getElementById('testing-ground-view').classList.remove('hidden');
-                startNewGameRound();
+                
+                // Force Quiz Mode button to be styled in blue by setting its active state explicitly
+                switchTestSubMode('quiz');
             }
         }
 
@@ -486,6 +497,42 @@
                 document.getElementById('twins-panel').classList.remove('hidden');
                 renderTwins();
             }
+        }
+
+        function switchTestSubMode(testMode) {
+            document.getElementById('sub-tab-quizmode').classList.remove('active');
+            document.getElementById('sub-tab-marathonmode').classList.remove('active');
+            
+            if (testMode === 'quiz') {
+                document.getElementById('sub-tab-quizmode').classList.add('active');
+                document.getElementById('panel-quiz-configs').classList.remove('hidden');
+                document.getElementById('panel-marathon-configs').classList.add('hidden');
+            } else {
+                document.getElementById('sub-tab-marathonmode').classList.add('active');
+                document.getElementById('panel-quiz-configs').classList.add('hidden');
+                document.getElementById('panel-marathon-configs').classList.remove('hidden');
+            }
+            startNewGameRound();
+        }
+
+        function toggleQuizContinent(continent, element) {
+            if (chosenQuizContinents.has(continent)) {
+                if (chosenQuizContinents.size > 1) {
+                    chosenQuizContinents.delete(continent);
+                    element.classList.remove('active');
+                }
+            } else {
+                chosenQuizContinents.add(continent);
+                element.classList.add('active');
+            }
+            startNewGameRound();
+        }
+
+        function selectMarathonContinent(continent, element) {
+            element.parentElement.querySelectorAll('.marathon-continent-btn').forEach(b => b.classList.remove('active'));
+            element.classList.add('active');
+            activeMarathonContinent = continent;
+            startNewGameRound();
         }
 
         function setFilter(key, value, target) {
@@ -599,42 +646,6 @@
             });
         }
 
-        function switchTestSubMode(testMode) {
-            document.getElementById('sub-tab-quizmode').classList.remove('active');
-            document.getElementById('sub-tab-marathonmode').classList.remove('active');
-            
-            if (testMode === 'quiz') {
-                document.getElementById('sub-tab-quizmode').classList.add('active');
-                document.getElementById('panel-quiz-configs').classList.remove('hidden');
-                document.getElementById('panel-marathon-configs').classList.add('hidden');
-            } else {
-                document.getElementById('sub-tab-marathonmode').classList.add('active');
-                document.getElementById('panel-quiz-configs').classList.add('hidden');
-                document.getElementById('panel-marathon-configs').classList.remove('hidden');
-            }
-            startNewGameRound();
-        }
-
-        function toggleQuizContinent(continent, element) {
-            if (chosenQuizContinents.has(continent)) {
-                if (chosenQuizContinents.size > 1) {
-                    chosenQuizContinents.delete(continent);
-                    element.classList.remove('active');
-                }
-            } else {
-                chosenQuizContinents.add(continent);
-                element.classList.add('active');
-            }
-            startNewGameRound();
-        }
-
-        function selectMarathonContinent(continent, element) {
-            element.parentElement.querySelectorAll('.marathon-continent-btn').forEach(b => b.classList.remove('active'));
-            element.classList.add('active');
-            activeMarathonContinent = continent;
-            startNewGameRound();
-        }
-
         function startNewGameRound() {
             const targetContainer = document.getElementById('game-main-matrix-rows-container');
             targetContainer.innerHTML = '';
@@ -647,12 +658,8 @@
                 let sizeConfig = document.getElementById('quiz-size-select').value;
                 
                 let shuffledPool = [...poolByContinents].sort(() => 0.5 - Math.random());
-                if (sizeConfig === 'all') {
-                    currentQuizCountries = shuffledPool;
-                } else {
-                    let size = parseInt(sizeConfig) || 10;
-                    currentQuizCountries = shuffledPool.slice(0, Math.min(size, shuffledPool.length));
-                }
+                let size = parseInt(sizeConfig) || 10;
+                currentQuizCountries = shuffledPool.slice(0, Math.min(size, shuffledPool.length));
             } else {
                 poolByContinents = dataset.filter(item => item.continent === activeMarathonContinent);
                 currentQuizCountries = [...poolByContinents].sort((a, b) => a.name.localeCompare(b.name));
