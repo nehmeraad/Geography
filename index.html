@@ -106,7 +106,6 @@
         <button class="main-tab-btn" id="main-tab-testing" onclick="switchMainMode('testing')">Testing Ground</button>
     </div>
 
-    <!-- LEARNING HUB INTERFACE -->
     <div id="learning-hub-view">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer Matrix</button>
@@ -115,7 +114,6 @@
 
         <div id="explorer-panel">
             <div class="filter-section">
-                <!-- Continents -->
                 <div class="filter-group">
                     <div class="filter-label">Geographic Continents</div>
                     <div class="btn-row">
@@ -128,7 +126,6 @@
                     </div>
                 </div>
 
-                <!-- Combined Frameworks -->
                 <div class="filter-group">
                     <div class="filter-label">Visual Framework & Iconography</div>
                     <div class="btn-row">
@@ -146,7 +143,6 @@
                     </div>
                 </div>
 
-                <!-- Colors Presence -->
                 <div class="filter-group">
                     <div class="filter-label">Colors Present</div>
                     <div class="btn-row">
@@ -160,18 +156,16 @@
                     </div>
                 </div>
 
-                <!-- Color Count -->
                 <div class="filter-group">
                     <div class="filter-label">Color Count Limitation</div>
                     <div class="btn-row">
                         <button class="filter-btn active" onclick="setFilter('colorCount', 'all', this)">All Quantities</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '2', this)">Exactly 2 Colors</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '3', this)">Exactly 3 Colors</button>
-                        <button class="filter-btn" onclick="setFilter('colorCount', '4plus', this)">4 or More Colors</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '2', this)">Exactly 2 colors</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '3', this)">Exactly 3</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '4plus', this)">4 or more</button>
                     </div>
                 </div>
 
-                <!-- Eras -->
                 <div class="filter-group">
                     <div class="filter-label">Chronological Adoption Eras</div>
                     <div class="btn-row">
@@ -183,18 +177,16 @@
                     </div>
                 </div>
 
-                <!-- Complexity (Updated classification layout) -->
                 <div class="filter-group">
                     <div class="filter-label">Design Complexity</div>
                     <div class="btn-row">
                         <button class="filter-btn active" onclick="setFilter('complexity', 'all', this)">All Designs</button>
                         <button class="filter-btn" onclick="setFilter('complexity', 'minimalist', this)">Minimalist</button>
-                        <button class="filter-btn" onclick="setFilter('complexity', 'intermediate', this)">Intermediate Complexity</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'intermediate', this)">Intermediate</button>
                         <button class="filter-btn" onclick="setFilter('complexity', 'complex', this)">Complex</button>
                     </div>
                 </div>
 
-                <!-- Alphabet Matrix -->
                 <div class="filter-group">
                     <div class="filter-label">Alphabetical Index</div>
                     <div class="btn-row" id="alphabet-matrix">
@@ -213,7 +205,6 @@
         </div>
     </div>
 
-    <!-- TESTING GROUND INTERFACE -->
     <div id="testing-ground-view" class="hidden">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-quizmode" onclick="switchTestSubMode('quiz')">Quiz Size Mode</button>
@@ -272,7 +263,6 @@
     </div>
 
     <script>
-        // Diagnostic Repository Mapping across all Global Regions
         const db = [
             // ASIA
             ["Afghanistan", "Kabul", "AF", "Asia", ["black","red","green","white"], "vertical", "modern", "complex"],
@@ -418,10 +408,10 @@
             "twin-latvia-austria": "Latvia & Austria (Crimson / Red Horizontal Fields)",
             "twin-panafrican-vertical": "Mali, Senegal, Cameroon & Guinea (Pan-African Verticals)",
             "twin-jordan-palestine": "Jordan & Palestine (Levantine Triangular Chevrons)",
-            "twin-romania-chad": "Romania & Chad (Near-Identical Vertical Tr colors)",
+            "twin-romania-chad": "Romania & Chad (Near-Identical Vertical Tricolors)",
             "twin-ireland-ivory": "Ireland & Ivory Coast (Vertical Mirror Frameworks)",
             "twin-indo-monaco": "Indonesia, Poland & Monaco (Horizontal Simple Two-Tone Splits)",
-            "twin-lux-netherlands": "Netherlands & Luxembourg (Red/White/Blue Horizontal Tiers)",
+            "twin-lux-netherlands": "Netherlands & Luxembourg (Red/White/Blue Horizontal Fields)",
             "twin-arab-stripes": "Iraq, Yemen & Egypt (Arab Liberation Horizontal Structural Bands)",
             "twin-turk-tunisia": "Turkey & Tunisia (Crescent Moon and Star Formations on Red)",
             "twin-nordic-cross": "The Nordic Cross Constellation (Iceland, Denmark, Finland, Norway, Sweden)",
@@ -664,7 +654,6 @@
                     currentQuizCountries = shuffledPool.slice(0, Math.min(size, shuffledPool.length));
                 }
             } else {
-                // Marathon Mode loops ALL countries within the selected continent without truncation limits
                 poolByContinents = dataset.filter(item => item.continent === activeMarathonContinent);
                 currentQuizCountries = [...poolByContinents].sort((a, b) => a.name.localeCompare(b.name));
             }
