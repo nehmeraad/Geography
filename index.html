@@ -37,10 +37,10 @@
         .sub-tab-btn { background: var(--card-bg); border: 1px solid var(--border); padding: 6px 12px; font-size: 12px; font-weight: 500; color: var(--text-sub); border-radius: 20px; cursor: pointer; transition: all 0.15s; }
         .sub-tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
 
-        .filter-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); }
-        .filter-group { margin-bottom: 10px; }
-        .filter-group:last-child { margin-bottom: 0; }
-        .filter-label { font-size: 10px; font-weight: 600; text-transform: uppercase; color: var(--text-sub); margin-bottom: 4px; letter-spacing: 0.5px; }
+        .filter-section { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 12px; margin-bottom: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.01); display: flex; flex-direction: column; gap: 12px; }
+        .filter-group { border-bottom: 1px dashed var(--border); padding-bottom: 8px; }
+        .filter-group:last-child { border-bottom: none; padding-bottom: 0; }
+        .filter-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text-sub); margin-bottom: 6px; letter-spacing: 0.5px; }
         
         .btn-row { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; }
         .filter-btn { background: var(--bg-main); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; font-size: 11px; font-weight: 500; color: var(--text-main); cursor: pointer; transition: all 0.12s; user-select: none; }
@@ -50,16 +50,14 @@
         .color-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; border: 1px solid rgba(0,0,0,0.1); }
         .stats { font-size: 12px; color: var(--text-sub); font-weight: 500; margin-bottom: 12px; }
 
-        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+        .app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
         
-        .cluster-block { margin-bottom: 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
-        .cluster-title { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; border-left: 3px solid var(--primary); padding-left: 8px; }
-
-        .country-card { background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; }
-        .card-flag { font-size: 28px; margin-bottom: 4px; display: block; line-height: 1.1; }
+        .country-card { background-color: var(--bg-main); border: 1px solid var(--border); border-radius: 10px; padding: 12px 8px; text-align: center; position: relative; }
+        .card-flag { font-size: 32px; margin-bottom: 4px; display: block; line-height: 1.1; }
         .card-name { font-size: 13px; font-weight: 600; color: var(--text-main); margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .card-capital { font-size: 11px; color: var(--text-sub); }
-        .card-meta { font-size: 9px; color: var(--primary); font-weight: 600; margin-top: 2px; text-transform: uppercase; }
+        .card-capital { font-size: 11px; color: var(--text-sub); margin-bottom: 4px; }
+        .card-tags { display: flex; flex-wrap: wrap; gap: 2px; justify-content: center; margin-top: 4px; }
+        .card-tag { font-size: 8px; font-weight: 600; background: #E2E8F0; color: var(--text-sub); padding: 1px 4px; border-radius: 4px; text-transform: uppercase; }
         
         /* Testing Ground Layout */
         .game-layout { display: flex; flex-direction: column; gap: 16px; max-width: 1000px; margin: 0 auto; }
@@ -85,7 +83,6 @@
         .matching-field-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text-sub); letter-spacing: 0.5px; }
 
         .game-slot { background: #FFFFFF; border: 1px solid var(--border); border-radius: 6px; min-height: 40px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-sub); text-align: center; padding: 6px; cursor: pointer; transition: all 0.15s; width: 100%; user-select: none; }
-        .game-slot.drag-over { background: #EFF6FF; border-color: var(--primary); }
         .game-slot.filled { background: var(--card-bg); border-style: solid; color: var(--text-main); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
         .game-slot.correct { border-color: var(--success) !important; background: #ECFDF5 !important; color: #047857 !important; }
         .game-slot.incorrect { border-color: var(--error) !important; background: #FEF2F2 !important; color: #B91C1C !important; }
@@ -99,13 +96,15 @@
         
         .no-results { grid-column: 1 / -1; text-align: center; padding: 30px; color: var(--text-sub); font-size: 13px; }
         .hidden { display: none !important; }
+        .cluster-block { margin-bottom: 20px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 12px; }
+        .cluster-title { font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700; color: var(--text-main); margin-bottom: 10px; border-left: 3px solid var(--primary); padding-left: 8px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Geo<span>Master</span> Pro</h1>
-        <p>Flag & Capital Database Matrix</p>
+        <p>Advanced Structural & Diagnostic Flag Explorer Matrix</p>
     </header>
 
     <div class="main-tabs">
@@ -116,50 +115,131 @@
     <!-- LEARNING HUB INTERFACE -->
     <div id="learning-hub-view">
         <div class="sub-tabs">
-            <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer</button>
-            <button class="sub-tab-btn" id="sub-tab-clusters" onclick="switchSubMode('clusters')">Structural Layouts</button>
-            <button class="sub-tab-btn" id="sub-tab-twins" onclick="switchSubMode('twins')">Visual Twins</button>
+            <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer Matrix</button>
+            <button class="sub-tab-btn" id="sub-tab-twins" onclick="switchSubMode('twins')">Visual Lookalike Twins</button>
         </div>
 
         <div id="explorer-panel">
             <div class="filter-section">
+                <!-- Row 1: Continents -->
                 <div class="filter-group">
-                    <div class="filter-label">Continents</div>
+                    <div class="filter-label">Geographic Continents</div>
                     <div class="btn-row">
-                        <button class="filter-btn active" onclick="filterContinent('all', this)">All</button>
-                        <button class="filter-btn" onclick="filterContinent('Europe', this)">Europe</button>
-                        <button class="filter-btn" onclick="filterContinent('Asia', this)">Asia</button>
-                        <button class="filter-btn" onclick="filterContinent('Africa', this)">Africa</button>
-                        <button class="filter-btn" onclick="filterContinent('Americas', this)">Americas</button>
-                        <button class="filter-btn" onclick="filterContinent('Oceania', this)">Oceania</button>
+                        <button class="filter-btn active" onclick="setFilter('continent', 'all', this)">All</button>
+                        <button class="filter-btn" onclick="setFilter('continent', 'Europe', this)">Europe</button>
+                        <button class="filter-btn" onclick="setFilter('continent', 'Asia', this)">Asia</button>
+                        <button class="filter-btn" onclick="setFilter('continent', 'Africa', this)">Africa</button>
+                        <button class="filter-btn" onclick="setFilter('continent', 'Americas', this)">Americas</button>
+                        <button class="filter-btn" onclick="setFilter('continent', 'Oceania', this)">Oceania</button>
                     </div>
                 </div>
+
+                <!-- Row 2: Structural Layout Layouts (Merged from old Tab 2) -->
                 <div class="filter-group">
-                    <div class="filter-label">Colors</div>
+                    <div class="filter-label">Geometric & Structural Layouts</div>
                     <div class="btn-row">
-                        <button class="filter-btn active" onclick="filterColor('all', this)">All Colors</button>
-                        <button class="filter-btn" onclick="filterColor('red', this)"><span class="color-dot" style="background:#EF4444"></span>Red</button>
-                        <button class="filter-btn" onclick="filterColor('blue', this)"><span class="color-dot" style="background:#3B82F6"></span>Blue</button>
-                        <button class="filter-btn" onclick="filterColor('green', this)"><span class="color-dot" style="background:#22C55E"></span>Green</button>
-                        <button class="filter-btn" onclick="filterColor('yellow', this)"><span class="color-dot" style="background:#EAB308"></span>Yellow</button>
-                        <button class="filter-btn" onclick="filterColor('white', this)"><span class="color-dot" style="background:#FFFFFF"></span>White</button>
-                        <button class="filter-btn" onclick="filterColor('black', this)"><span class="color-dot" style="background:#0F172A"></span>Black</button>
+                        <button class="filter-btn active" onclick="setFilter('cluster', 'all', this)">All Frameworks</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'horizontal_tricolor', this)">Horizontal Tricolor</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'vertical_tricolor', this)">Vertical Tricolor</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'bicolor', this)">Two-Tone Split (Bicolor)</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'stripes', this)">Multi-Stripe</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'cross', this)">Cross Formation</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'crescent', this)">Crescent Moon & Star</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'stars', this)">Sovereign Star Fields</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'disc', this)">Central Disc / Roundel</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'diagonal', this)">Asymmetric Diagonal</button>
+                        <button class="filter-btn" onclick="setFilter('cluster', 'crest', this)">Emblems & Crests Only</button>
                     </div>
                 </div>
+
+                <!-- Row 3: Colors Presence -->
                 <div class="filter-group">
-                    <div class="filter-label">First Letter</div>
+                    <div class="filter-label">Colors Present</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('colorVal', 'all', this)">All Colors</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'red', this)"><span class="color-dot" style="background:#EF4444"></span>Red</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'blue', this)"><span class="color-dot" style="background:#3B82F6"></span>Blue</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'green', this)"><span class="color-dot" style="background:#22C55E"></span>Green</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'yellow', this)"><span class="color-dot" style="background:#EAB308"></span>Yellow</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'white', this)"><span class="color-dot" style="background:#FFFFFF"></span>White</button>
+                        <button class="filter-btn" onclick="setFilter('colorVal', 'black', this)"><span class="color-dot" style="background:#0F172A"></span>Black</button>
+                    </div>
+                </div>
+
+                <!-- Row 4: Color Count Composition -->
+                <div class="filter-group">
+                    <div class="filter-label">Color Count Limitation</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('colorCount', 'all', this)">All Quantities</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '2', this)">Exactly 2 Colors</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '3', this)">Exactly 3 Colors</button>
+                        <button class="filter-btn" onclick="setFilter('colorCount', '4plus', this)">4 or More Colors</button>
+                    </div>
+                </div>
+
+                <!-- Row 5: Heraldic & Functional Symbols (NEW) -->
+                <div class="filter-group">
+                    <div class="filter-label">Heraldic & Iconographic Symbols</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('symbol', 'all', this)">All Icons</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'crescent', this)">Crescent & Star</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'sun', this)">Sun / Solar Disc</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'star-field', this)">Multi-Star Field</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'botanical', this)">Flora / Trees / Leaves</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'fauna', this)">Fauna / Eagle / Animals</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'cross', this)">Religious / Heraldic Cross</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'text', this)">Script / Inscriptions</button>
+                        <button class="filter-btn" onclick="setFilter('symbol', 'none', this)">Minimalist / No Icons</button>
+                    </div>
+                </div>
+
+                <!-- Row 6: Proportional Geometric Ratios (NEW) -->
+                <div class="filter-group">
+                    <div class="filter-label">Proportional Geometric Ratios</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('ratio', 'all', this)">All Ratios</button>
+                        <button class="filter-btn" onclick="setFilter('ratio', '1:1', this)">1:1 Square Format</button>
+                        <button class="filter-btn" onclick="setFilter('ratio', '2:3', this)">2:3 Standard Classic</button>
+                        <button class="filter-btn" onclick="setFilter('ratio', '3:5', this)">3:5 Balanced Variant</button>
+                        <button class="filter-btn" onclick="setFilter('ratio', '1:2', this)">1:2 Elongated Horizon</button>
+                        <button class="filter-btn" onclick="setFilter('ratio', 'irregular', this)">Asymmetric Outlier</button>
+                    </div>
+                </div>
+
+                <!-- Row 7: Chronological Eras of Adoption (NEW) -->
+                <div class="filter-group">
+                    <div class="filter-label">Chronological Adoption Eras</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('era', 'all', this)">All Historical Timelines</button>
+                        <button class="filter-btn" onclick="setFilter('era', 'ancient', this)">Pre-1900 Ancients</button>
+                        <button class="filter-btn" onclick="setFilter('era', 'mid-century', this)">1900-1989 Decolonization</button>
+                        <button class="filter-btn" onclick="setFilter('era', 'post-soviet', this)">1990-1999 Geopolitical Shift</button>
+                        <button class="filter-btn" onclick="setFilter('era', 'modern', this)">2000-Present Modern Revisions</button>
+                    </div>
+                </div>
+
+                <!-- Row 8: Design Complexity Tiers (NEW) -->
+                <div class="filter-group">
+                    <div class="filter-label">Design Complexity Tiers</div>
+                    <div class="btn-row">
+                        <button class="filter-btn active" onclick="setFilter('complexity', 'all', this)">All Tiers</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'tier1', this)">Tier 1: Minimalist Structural</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'tier2', this)">Tier 2: Intermediate Focal Element</button>
+                        <button class="filter-btn" onclick="setFilter('complexity', 'tier3', this)">Tier 3: Intricate / Complex Shield</button>
+                    </div>
+                </div>
+
+                <!-- Row 9: Alphabet First Letter -->
+                <div class="filter-group">
+                    <div class="filter-label">Alphabetical Index</div>
                     <div class="btn-row" id="alphabet-matrix">
-                        <button class="filter-btn active" onclick="filterLetter('all', this)">All</button>
+                        <button class="filter-btn active" onclick="setFilter('letter', 'all', this)">All Letters</button>
                     </div>
                 </div>
             </div>
+
             <div class="stats" id="country-count">Syncing...</div>
             <div class="app-grid" id="countries-container"></div>
-        </div>
-
-        <div id="clusters-panel" class="hidden">
-            <div class="stats" id="cluster-count">Sorting layouts...</div>
-            <div id="clusters-container"></div>
         </div>
 
         <div id="twins-panel" class="hidden">
@@ -177,7 +257,6 @@
 
         <div class="game-layout">
             <div class="game-control-panel">
-                <!-- Config Options for Mode 1: Quiz Mode -->
                 <div id="panel-quiz-configs">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Target Continents:</div>
@@ -202,7 +281,6 @@
                     </div>
                 </div>
 
-                <!-- Config Options for Mode 2: Marathon Mode -->
                 <div id="panel-marathon-configs" class="hidden">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Active Continent:</div>
@@ -214,11 +292,10 @@
                             <button class="filter-btn marathon-continent-btn" onclick="selectMarathonContinent('Oceania', this)">Oceania</button>
                         </div>
                     </div>
-                    <p style="font-size: 11px; color: var(--primary); margin-top: 4px; font-weight: 500;">Testing all countries inside the selected continent boundary sequentially.</p>
                 </div>
                 
                 <div class="game-actions">
-                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Click choices within a specific row to deploy them into that row's slot. Click filled slots to remove.</span>
+                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Click choices within a row to deploy them. Click filled slots to eject.</span>
                     <div class="btn-row">
                         <button class="game-btn" style="background: var(--success);" onclick="checkGameAnswers()">Verify Match Matrix</button>
                         <button class="game-btn" onclick="startNewGameRound()">Reset Grid Layout</button>
@@ -226,210 +303,107 @@
                 </div>
             </div>
             
-            <div style="display: flex; flex-direction: column; gap: 10px;" id="game-main-matrix-rows-container">
-                <!-- Dynamic Rows -->
-            </div>
+            <div style="display: flex; flex-direction: column; gap: 10px;" id="game-main-matrix-rows-container"></div>
         </div>
     </div>
 
     <script>
+        // Diagnostic Database Expanded with: [Symbol, Ratio, Adoption Era, Complexity Tier]
         const db = [
-            ["Afghanistan", "Kabul", "AF", "Asia", ["black","red","green","white"], "vertical_tricolor", ""],
-            ["Armenia", "Yerevan", "AM", "Asia", ["red","blue","yellow"], "horizontal_tricolor", ""],
-            ["Azerbaijan", "Baku", "AZ", "Asia", ["blue","red","green","white"], "horizontal_tricolor", ""],
-            ["Bahrain", "Manama", "BH", "Asia", ["red","white"], "bicolor", ""],
-            ["Bangladesh", "Dhaka", "BD", "Asia", ["green","red"], "disc", ""],
-            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "diagonal", ""],
-            ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "diagonal", ""],
-            ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "bicolor", ""],
-            ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", ""],
-            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "crest", ""],
-            ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "cross", ""],
-            ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "horizontal_tricolor", ""],
-            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "bicolor", "twin-indo-monaco"],
-            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "horizontal_tricolor", ""],
-            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "horizontal_tricolor", "twin-arab-stripes"],
-            ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stripes", ""],
-            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "disc", ""],
-            ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stripes", "twin-jordan-palestine"],
-            ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "crest", ""],
-            ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "stripes", ""],
-            ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "disc", ""],
-            ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "disc", ""],
-            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "crest", ""],
-            ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "stripes", ""],
-            ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", ""],
-            ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical_tricolor", ""],
-            ["Myanmar", "Naypyidaw", "MM", "Asia", ["yellow","green","red","white"], "horizontal_tricolor", ""],
-            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "crest", ""],
-            ["North Korea", "Pyongyang", "KP", "Asia", ["blue","white","red"], "stars", ""],
-            ["Oman", "Muscat", "OM", "Asia", ["white","red","green"], "bicolor", ""],
-            ["Pakistan", "Islamabad", "PK", "Asia", ["green","white"], "crescent", ""],
-            ["Palestine", "Jerusalem", "PS", "Asia", ["black","white","green","red"], "stripes", "twin-jordan-palestine"],
-            ["Philippines", "Manila", "PH", "Asia", ["blue","red","white","yellow"], "bicolor", ""],
-            ["Qatar", "Doha", "QA", "Asia", ["white","red"], "bicolor", ""],
-            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "crest", ""],
-            ["Singapore", "Singapore", "SG", "Asia", ["red","white"], "crescent", ""],
-            ["South Korea", "Seoul", "KR", "Asia", ["white","black","red","blue"], "disc", ""],
-            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "crest", ""],
-            ["Syria", "Damascus", "SY", "Asia", ["red","white","black","green"], "horizontal_tricolor", ""],
-            ["Taiwan", "Taipei", "TW", "Asia", ["red","blue","white"], "stars", ""],
-            ["Tajikistan", "Dushanbe", "TJ", "Asia", ["red","white","green","yellow"], "horizontal_tricolor", ""],
-            ["Thailand", "Bangkok", "TH", "Asia", ["red","white","blue"], "stripes", ""],
-            ["Timor-Leste", "Dili", "TL", "Asia", ["red","yellow","black","white"], "stars", ""],
-            ["Turkey", "Ankara", "TR", "Asia", ["red","white"], "crescent", "twin-turk-tunisia"],
-            ["Turkmenistan", "Ashgabat", "TM", "Asia", ["green","red","white"], "crescent", ""],
-            ["UAE", "Abu Dhabi", "AE", "Asia", ["red","green","white","black"], "stripes", ""],
-            ["Uzbekistan", "Tashkent", "UZ", "Asia", ["blue","white","green","red"], "crescent", ""],
-            ["Vietnam", "Hanoi", "VN", "Asia", ["red","yellow"], "stars", ""],
-            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "horizontal_tricolor", "twin-arab-stripes"],
-            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "crest", ""],
-            ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-blue-yellow-red-vertical"],
-            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "stripes", "twin-latvia-austria"],
-            ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "bicolor", ""],
-            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "vertical_tricolor", ""],
-            ["Bosnia and Herzegovina", "Sarajevo", "BA", "Europe", ["blue","yellow","white"], "stars", ""],
-            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "horizontal_tricolor", ""],
-            ["Croatia", "Zagreb", "HR", "Europe", ["red","white","blue"], "horizontal_tricolor", ""],
-            ["Czechia", "Prague", "CZ", "Europe", ["white","blue","red"], "bicolor", ""],
-            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "cross", "twin-nordic-cross"],
-            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "horizontal_tricolor", ""],
-            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "cross", "twin-nordic-cross"],
-            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "vertical_tricolor", ""],
-            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "horizontal_tricolor", ""],
-            ["Greece", "Athens", "GR", "Europe", ["blue","white"], "cross", ""],
-            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "horizontal_tricolor", ""],
-            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "cross", "twin-nordic-cross"],
-            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "vertical_tricolor", "twin-ireland-ivory"],
-            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "vertical_tricolor", "twin-ireland-ivory"],
-            ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", ""],
-            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "stripes", "twin-latvia-austria"],
-            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "horizontal_tricolor", ""],
-            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "horizontal_tricolor", "twin-lux-netherlands"],
-            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "bicolor", ""],
-            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-blue-yellow-red-vertical"],
-            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "bicolor", "twin-indo-monaco"],
-            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "crest", ""],
-            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "horizontal_tricolor", "twin-lux-netherlands"],
-            ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "disc", ""],
-            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "cross", "twin-nordic-cross"],
-            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "bicolor", "twin-indo-monaco"],
-            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "bicolor", ""],
-            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-romania-chad"],
-            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals"],
-            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "bicolor", ""],
-            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "horizontal_tricolor", ""],
-            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals"],
-            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals"],
-            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "stripes", ""],
-            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "cross", "twin-nordic-cross"],
-            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "cross", ""],
-            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "bicolor", ""],
-            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "cross", ""],
-            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "bicolor", ""],
-            ["Algeria", "Algiers", "DZ", "Africa", ["green","white","red"], "crescent", ""],
-            ["Angola", "Luanda", "AO", "Africa", ["red","black","yellow"], "bicolor", ""],
-            ["Benin", "Porto-Novo", "BJ", "Africa", ["green","yellow","red"], "bicolor", ""],
-            ["Botswana", "Gaborone", "BW", "Africa", ["blue","white","black"], "stripes", ""],
-            ["Burkina Faso", "Ouagadougou", "BF", "Africa", ["red","green","yellow"], "bicolor", ""],
-            ["Burundi", "Gitega", "BI", "Africa", ["red","white","green"], "cross", ""],
-            ["Cabo Verde", "Praia", "CV", "Africa", ["blue","white","red","yellow"], "stars", ""],
-            ["Cameroon", "Yaoundé", "CM", "Africa", ["green","red","yellow"], "vertical_tricolor", "twin-panafrican-vertical"],
-            ["Central African Republic", "Bangui", "CF", "Africa", ["blue","white","green","yellow","red"], "stripes", ""],
-            ["Chad", "N'Djamena", "TD", "Africa", ["blue","yellow","red"], "vertical_tricolor", "twin-romania-chad"],
-            ["Comoros", "Moroni", "KM", "Africa", ["yellow","white","red","blue","green"], "crescent", ""],
-            ["DR Congo", "Kinshasa", "CD", "Africa", ["blue","yellow","red"], "diagonal", ""],
-            ["Republic of the Congo", "Brazzaville", "CG", "Africa", ["green","yellow","red"], "diagonal", ""],
-            ["Djibouti", "Djibouti", "DJ", "Africa", ["blue","green","white","red"], "bicolor", ""],
-            ["Egypt", "Cairo", "EG", "Africa", ["red","white","black","yellow"], "horizontal_tricolor", "twin-arab-stripes"],
-            ["Equatorial Guinea", "Malabo", "GQ", "Africa", ["green","white","red","blue"], "horizontal_tricolor", ""],
-            ["Eritrea", "Asmara", "ER", "Africa", ["green","blue","red","yellow"], "diagonal", ""],
-            ["Eswatini", "Mbabane", "SZ", "Africa", ["blue","yellow","red","black","white"], "stripes", ""],
-            ["Ethiopia", "Addis Ababa", "ET", "Africa", ["green","yellow","red","blue"], "horizontal_tricolor", ""],
-            ["Gabon", "Libreville", "GA", "Africa", ["green","yellow","blue"], "horizontal_tricolor", ""],
-            ["Gambia", "Banjul", "GM", "Africa", ["red","blue","green","white"], "stripes", ""],
-            ["Ghana", "Accra", "GH", "Africa", ["red","yellow","green","black"], "horizontal_tricolor", ""],
-            ["Guinea", "Conakry", "GN", "Africa", ["red","yellow","green"], "vertical_tricolor", "twin-panafrican-vertical"],
-            ["Guinea-Bissau", "Bissau", "GW", "Africa", ["red","yellow","green","black"], "bicolor", ""],
-            ["Ivory Coast", "Yamoussoukrow", "CI", "Africa", ["orange","white","green"], "vertical_tricolor", "twin-ireland-ivory"],
-            ["Kenya", "Nairobi", "KE", "Africa", ["black","red","green","white"], "stripes", ""],
-            ["Lesotho", "Maseru", "LS", "Africa", ["blue","white","green","black"], "horizontal_tricolor", ""],
-            ["Liberia", "Monrovia", "LR", "Africa", ["red","white","blue"], "stripes", ""],
-            ["Libya", "Tripoli", "LY", "Africa", ["red","black","green","white"], "crescent", ""],
-            ["Madagascar", "Antananarivo", "MG", "Africa", ["white","red","green"], "bicolor", ""],
-            ["Malawi", "Lilongwe", "MW", "Africa", ["black","red","green"], "horizontal_tricolor", ""],
-            ["Mali", "Bamako", "ML", "Africa", ["green","yellow","red"], "vertical_tricolor", "twin-panafrican-vertical"],
-            ["Mauritania", "Nouakchott", "MR", "Africa", ["green","yellow","red"], "crescent", ""],
-            ["Mauritius", "Port Louis", "MU", "Africa", ["red","blue","yellow","green"], "stripes", ""],
-            ["Morocco", "Rabat", "MA", "Africa", ["red","green"], "stars", ""],
-            ["Mozambique", "Maputo", "MZ", "Africa", ["green","black","yellow","white","red"], "stripes", ""],
-            ["Namibia", "Windhoek", "NA", "Africa", ["blue","red","green","white","yellow"], "diagonal", ""],
-            ["Niger", "Niamey", "NE", "Africa", ["orange","white","green"], "disc", ""],
-            ["Nigeria", "Abuja", "NG", "Africa", ["green","white"], "vertical_tricolor", ""],
-            ["Rwanda", "Kigali", "RW", "Africa", ["blue","yellow","green"], "horizontal_tricolor", ""],
-            ["Sao Tome and Principe", "São Tomé", "ST", "Africa", ["green","yellow","red","black"], "stars", ""],
-            ["Senegal", "Dakar", "SN", "Africa", ["green","yellow","red"], "vertical_tricolor", "twin-panafrican-vertical"],
-            ["Seychelles", "Victoria", "SC", "Africa", ["blue","yellow","red","white","green"], "diagonal", ""],
-            ["Sierra Leone", "Freetown", "SL", "Africa", ["green","white","blue"], "horizontal_tricolor", ""],
-            ["Somalia", "Mogadishu", "SO", "Africa", ["blue","white"], "stars", ""],
-            ["South Africa", "Pretoria", "ZA", "Africa", ["black","yellow","green","red","white","blue"], "diagonal", ""],
-            ["South Sudan", "Juba", "SS", "Africa", ["black","red","green","white","blue","yellow"], "stripes", ""],
-            ["Sudan", "Khartoum", "SD", "Africa", ["red","white","black","green"], "stripes", ""],
-            ["Tanzania", "Dodoma", "TZ", "Africa", ["green","yellow","black","blue"], "diagonal", ""],
-            ["Togo", "Lomé", "TG", "Africa", ["green","yellow","red","white"], "stripes", ""],
-            ["Tunisia", "Tunis", "TN", "Africa", ["red","white"], "crescent", "twin-turk-tunisia"],
-            ["Uganda", "Kampala", "UG", "Africa", ["black","yellow","red","white"], "stripes", ""],
-            ["Zambia", "Lusaka", "ZM", "Africa", ["green","red","black","orange"], "crest", ""],
-            ["Zimbabwe", "Harare", "ZW", "Africa", ["green","yellow","red","black","white"], "stripes", ""],
-            ["Antigua and Barbuda", "St. John's", "AG", "Americas", ["red","white","blue","black","yellow"], "crest", ""],
-            ["Argentina", "Buenos Aires", "AR", "Americas", ["blue","white","yellow"], "crest", ""],
-            ["Bahamas", "Nassau", "BS", "Americas", ["blue","yellow","black"], "bicolor", ""],
-            ["Barbados", "Bridgetown", "BB", "Americas", ["blue","yellow","black"], "vertical_tricolor", ""],
-            ["Belize", "Belmopan", "BZ", "Americas", ["blue","red","white"], "crest", ""],
-            ["Bolivia", "Sucre", "BO", "Americas", ["red","yellow","green"], "horizontal_tricolor", ""],
-            ["Brazil", "Brasilia", "BR", "Americas", ["green","yellow","blue","white"], "disc", ""],
-            ["Canada", "Ottawa", "CA", "Americas", ["red","white"], "crest", ""],
-            ["Chile", "Santiago", "CL", "Americas", ["blue","white","red"], "stars", ""],
-            ["Colombia", "Bogotá", "CO", "Americas", ["yellow","blue","red"], "horizontal_tricolor", ""],
-            ["Costa Rica", "San José", "CR", "Americas", ["blue","white","red"], "stripes", ""],
-            ["Cuba", "Havana", "CU", "Americas", ["blue","white","red"], "stars", ""],
-            ["Dominica", "Roseau", "DM", "Americas", ["green","yellow","white","black","red"], "cross", ""],
-            ["Dominican Republic", "Santo Domingo", "DO", "Americas", ["blue","white","red"], "cross", ""],
-            ["Ecuador", "Quito", "EC", "Americas", ["yellow","blue","red"], "horizontal_tricolor", ""],
-            ["El Salvador", "San Salvador", "SV", "Americas", ["blue","white","yellow"], "crest", ""],
-            ["Grenada", "St. George's", "GD", "Americas", ["red","yellow","green"], "stars", ""],
-            ["Guatemala", "Guatemala City", "GT", "Americas", ["blue","white","yellow"], "crest", ""],
-            ["Guyana", "Georgetown", "GY", "Americas", ["green","red","yellow","black","white"], "diagonal", ""],
-            ["Haiti", "Port-au-Prince", "HT", "Americas", ["blue","red"], "bicolor", ""],
-            ["Honduras", "Tegucigalpa", "HN", "Americas", ["blue","white"], "stars", ""],
-            ["Jamaica", "Kingston", "JM", "Americas", ["green","yellow","black"], "cross", ""],
-            ["Mexico", "Mexico City", "MX", "Americas", ["green","white","red"], "crest", ""],
-            ["Nicaragua", "Managua", "NI", "Americas", ["blue","white","yellow"], "crest", ""],
-            ["Panama", "Panama City", "PA", "Americas", ["blue","white","red"], "stars", ""],
-            ["Paraguay", "Asunción", "PY", "Americas", ["blue","white","red"], "horizontal_tricolor", "twin-lux-netherlands"],
-            ["Peru", "Lima", "PE", "Americas", ["red","white"], "vertical_tricolor", ""],
-            ["Saint Kitts and Nevis", "Basseterre", "KN", "Americas", ["green","black","red","white","yellow"], "diagonal", ""],
-            ["Saint Lucia", "Castries", "LC", "Americas", ["blue","white","yellow","black"], "crest", ""],
-            ["Saint Vincent", "Kingstown", "VC", "Americas", ["blue","yellow","green"], "crest", ""],
-            ["Suriname", "Paramaribo", "SR", "Americas", ["green","white","red","yellow"], "stars", ""],
-            ["Trinidad and Tobago", "Port of Spain", "TT", "Americas", ["red","black","white"], "diagonal", ""],
-            ["United States", "Washington D.C.", "US", "Americas", ["red","white","blue"], "stars", ""],
-            ["Uruguay", "Montevideo", "UY", "Americas", ["blue","white","yellow"], "stripes", ""],
-            ["Venezuela", "Caracas", "VE", "Americas", ["yellow","blue","red","white"], "horizontal_tricolor", ""],
-            ["Australia", "Canberra", "AU", "Oceania", ["blue","white","red"], "stars", ""],
-            ["Fiji", "Suva", "FJ", "Oceania", ["blue","white","red"], "crest", ""],
-            ["Kiribati", "Tarawa", "KI", "Oceania", ["red","blue","white","yellow"], "crest", ""],
-            ["Marshall Islands", "Majuro", "MH", "Oceania", ["blue","white","orange"], "stars", ""],
-            ["Micronesia", "Palikir", "FM", "Oceania", ["blue","white"], "stars", ""],
-            ["Nauru", "Yaren", "NR", "Oceania", ["blue","yellow","white"], "stars", ""],
-            ["New Zealand", "Wellington", "NZ", "Oceania", ["blue","white","red"], "stars", ""],
-            ["Palau", "Ngerulmud", "PW", "Oceania", ["blue","yellow"], "disc", ""],
-            ["Papua New Guinea", "Port Moresby", "PG", "Oceania", ["black","red","yellow"], "diagonal", ""],
-            ["Samoa", "Apia", "WS", "Oceania", ["red","blue","white"], "stars", ""],
-            ["Solomon Islands", "Honiara", "SB", "Oceania", ["blue","yellow","green","white"], "diagonal", ""],
-            ["Tonga", "Nuku'alofa", "TO", "Oceania", ["red","white"], "cross", ""],
-            ["Tuvalu", "Funafuti", "TV", "Oceania", ["blue","white","red","yellow"], "stars", ""],
-            ["Vanuatu", "Port Vila", "VU", "Oceania", ["red","green","black","yellow"], "diagonal", ""]
+            ["Afghanistan", "Kabul", "AF", "Asia", ["black","red","green","white"], "vertical_tricolor", "", "text", "2:3", "modern", "tier3"],
+            ["Armenia", "Yerevan", "AM", "Asia", ["red","blue","yellow"], "horizontal_tricolor", "", "none", "1:2", "mid-century", "tier1"],
+            ["Azerbaijan", "Baku", "AZ", "Asia", ["blue","red","green","white"], "horizontal_tricolor", "", "crescent", "1:2", "mid-century", "tier2"],
+            ["Bahrain", "Manama", "BH", "Asia", ["red","white"], "bicolor", "", "none", "3:5", "modern", "tier1"],
+            ["Bangladesh", "Dhaka", "BD", "Asia", ["green","red"], "disc", "", "sun", "3:5", "mid-century", "tier1"],
+            ["Bhutan", "Thimphu", "BT", "Asia", ["yellow","white","orange"], "diagonal", "", "fauna", "2:3", "mid-century", "tier3"],
+            ["Brunei", "Bandar Seri Begawan", "BN", "Asia", ["yellow","white","black","red"], "diagonal", "", "text", "1:2", "mid-century", "tier3"],
+            ["Cambodia", "Phnom Penh", "KH", "Asia", ["blue","red","white"], "bicolor", "", "crest", "2:3", "mid-century", "tier2"],
+            ["China", "Beijing", "CN", "Asia", ["red","yellow"], "stars", "", "star-field", "2:3", "mid-century", "tier1"],
+            ["Cyprus", "Nicosia", "CY", "Asia", ["white","yellow","green"], "crest", "", "botanical", "3:5", "mid-century", "tier2"],
+            ["Georgia", "Tbilisi", "GE", "Asia", ["white","red"], "cross", "", "cross", "2:3", "modern", "tier2"],
+            ["India", "New Delhi", "IN", "Asia", ["orange","white","green","blue"], "horizontal_tricolor", "", "sun", "2:3", "mid-century", "tier2"],
+            ["Indonesia", "Jakarta", "ID", "Asia", ["red","white"], "bicolor", "twin-indo-monaco", "none", "2:3", "mid-century", "tier1"],
+            ["Iran", "Tehran", "IR", "Asia", ["green","white","red"], "horizontal_tricolor", "", "text", "4:7", "mid-century", "tier2"],
+            ["Iraq", "Baghdad", "IQ", "Asia", ["red","white","black","green"], "horizontal_tricolor", "twin-arab-stripes", "text", "2:3", "modern", "tier2"],
+            ["Israel", "Jerusalem", "IL", "Asia", ["blue","white"], "stripes", "", "cross", "8:11", "mid-century", "tier2"],
+            ["Japan", "Tokyo", "JP", "Asia", ["white","red"], "disc", "", "sun", "2:3", "ancient", "tier1"],
+            ["Jordan", "Amman", "JO", "Asia", ["black","white","green","red"], "stripes", "twin-jordan-palestine", "star-field", "1:2", "mid-century", "tier2"],
+            ["Kazakhstan", "Astana", "KZ", "Asia", ["blue","yellow"], "crest", "", "sun", "1:2", "post-soviet", "tier3"],
+            ["Kuwait", "Kuwait City", "KW", "Asia", ["green","white","red","black"], "stripes", "", "none", "1:2", "mid-century", "tier1"],
+            ["Kyrgyzstan", "Bishkek", "KG", "Asia", ["red","yellow"], "disc", "", "sun", "3:5", "modern", "tier2"],
+            ["Laos", "Vientiane", "LA", "Asia", ["red","blue","white"], "disc", "", "sun", "2:3", "mid-century", "tier1"],
+            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "crest", "", "botanical", "2:3", "mid-century", "tier2"],
+            ["Malaysia", "Kuala Lumpur", "MY", "Asia", ["red","white","blue","yellow"], "stripes", "", "crescent", "1:2", "mid-century", "tier2"],
+            ["Maldives", "Malé", "MV", "Asia", ["red","green","white"], "crescent", "", "crescent", "2:3", "mid-century", "tier2"],
+            ["Mongolia", "Ulaanbaatar", "MN", "Asia", ["red","blue","yellow"], "vertical_tricolor", "", "sun", "1:2", "mid-century", "tier2"],
+            ["Myanmar", "Naypyidaw", "MM", "Asia", ["yellow","green","red","white"], "horizontal_tricolor", "", "star-field", "2:3", "modern", "tier2"],
+            ["Nepal", "Kathmandu", "NP", "Asia", ["blue","red","white"], "crest", "", "sun", "irregular", "mid-century", "tier2"],
+            ["North Korea", "Pyongyang", "KP", "Asia", ["blue","white","red"], "stars", "", "star-field", "1:2", "mid-century", "tier2"],
+            ["Oman", "Muscat", "OM", "Asia", ["white","red","green"], "bicolor", "", "crest", "1:2", "mid-century", "tier2"],
+            ["Pakistan", "Islamabad", "PK", "Asia", ["green","white"], "crescent", "", "crescent", "2:3", "mid-century", "tier2"],
+            ["Palestine", "Jerusalem", "PS", "Asia", ["black","white","green","red"], "stripes", "twin-jordan-palestine", "none", "1:2", "mid-century", "tier1"],
+            ["Philippines", "Manila", "PH", "Asia", ["blue","red","white","yellow"], "bicolor", "", "sun", "1:2", "ancient", "tier2"],
+            ["Qatar", "Doha", "QA", "Asia", ["white","red"], "bicolor", "", "none", "11:28", "mid-century", "tier1"],
+            ["Saudi Arabia", "Riyadh", "SA", "Asia", ["green","white"], "crest", "", "text", "2:3", "mid-century", "tier2"],
+            ["Singapore", "Singapore", "SG", "Asia", ["red","white"], "crescent", "", "crescent", "2:3", "mid-century", "tier2"],
+            ["South Korea", "Seoul", "KR", "Asia", ["white","black","red","blue"], "disc", "", "none", "2:3", "mid-century", "tier2"],
+            ["Sri Lanka", "Colombo", "LK", "Asia", ["green","orange","yellow","red"], "crest", "", "fauna", "1:2", "mid-century", "tier3"],
+            ["Syria", "Damascus", "SY", "Asia", ["red","white","black","green"], "horizontal_tricolor", "", "star-field", "2:3", "mid-century", "tier2"],
+            ["Taiwan", "Taipei", "TW", "Asia", ["red","blue","white"], "stars", "", "sun", "2:3", "mid-century", "tier2"],
+            ["Tajikistan", "Dushanbe", "TJ", "Asia", ["red","white","green","yellow"], "horizontal_tricolor", "", "star-field", "1:2", "post-soviet", "tier2"],
+            ["Thailand", "Bangkok", "TH", "Asia", ["red","white","blue"], "stripes", "", "none", "2:3", "ancient", "tier1"],
+            ["Timor-Leste", "Dili", "TL", "Asia", ["red","yellow","black","white"], "stars", "", "star-field", "1:2", "modern", "tier2"],
+            ["Turkey", "Ankara", "TR", "Asia", ["red","white"], "crescent", "twin-turk-tunisia", "crescent", "2:3", "mid-century", "tier2"],
+            ["Turkmenistan", "Ashgabat", "TM", "Asia", ["green","red","white"], "crescent", "", "crescent", "2:3", "modern", "tier3"],
+            ["UAE", "Abu Dhabi", "AE", "Asia", ["red","green","white","black"], "stripes", "", "none", "1:2", "mid-century", "tier1"],
+            ["Uzbekistan", "Tashkent", "UZ", "Asia", ["blue","white","green","red"], "crescent", "", "crescent", "1:2", "post-soviet", "tier2"],
+            ["Vietnam", "Hanoi", "VN", "Asia", ["red","yellow"], "stars", "", "star-field", "2:3", "mid-century", "tier1"],
+            ["Yemen", "Sanaa", "YE", "Asia", ["red","white","black"], "horizontal_tricolor", "twin-arab-stripes", "none", "2:3", "post-soviet", "tier1"],
+            ["Albania", "Tirana", "AL", "Europe", ["red","black"], "crest", "", "fauna", "5:7", "mid-century", "tier2"],
+            ["Andorra", "Andorra la Vella", "AD", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-blue-yellow-red-vertical", "crest", "7:10", "mid-century", "tier3"],
+            ["Austria", "Vienna", "AT", "Europe", ["red","white"], "stripes", "twin-latvia-austria", "none", "2:3", "ancient", "tier1"],
+            ["Belarus", "Minsk", "BY", "Europe", ["red","green","white"], "bicolor", "", "none", "1:2", "post-soviet", "tier2"],
+            ["Belgium", "Brussels", "BE", "Europe", ["black","yellow","red"], "vertical_tricolor", "", "none", "13:15", "ancient", "tier1"],
+            ["Bosnia and Herzegovina", "Sarajevo", "BA", "Europe", ["blue","yellow","white"], "stars", "", "star-field", "1:2", "post-soviet", "tier2"],
+            ["Bulgaria", "Sofia", "BG", "Europe", ["white","green","red"], "horizontal_tricolor", "", "none", "3:5", "post-soviet", "tier1"],
+            ["Croatia", "Zagreb", "HR", "Europe", ["red","white","blue"], "horizontal_tricolor", "", "crest", "1:2", "post-soviet", "tier3"],
+            ["Czechia", "Prague", "CZ", "Europe", ["white","blue","red"], "bicolor", "", "none", "2:3", "mid-century", "tier1"],
+            ["Denmark", "Copenhagen", "DK", "Europe", ["red","white"], "cross", "twin-nordic-cross", "cross", "28:37", "ancient", "tier1"],
+            ["Estonia", "Tallinn", "EE", "Europe", ["blue","black","white"], "horizontal_tricolor", "", "none", "7:11", "post-soviet", "tier1"],
+            ["Finland", "Helsinki", "FI", "Europe", ["white","blue"], "cross", "twin-nordic-cross", "cross", "11:18", "ancient", "tier1"],
+            ["France", "Paris", "FR", "Europe", ["blue","white","red"], "vertical_tricolor", "", "none", "2:3", "ancient", "tier1"],
+            ["Germany", "Berlin", "DE", "Europe", ["black","red","yellow"], "horizontal_tricolor", "", "none", "3:5", "mid-century", "tier1"],
+            ["Greece", "Athens", "GR", "Europe", ["blue","white"], "cross", "", "cross", "2:3", "mid-century", "tier1"],
+            ["Hungary", "Budapest", "HU", "Europe", ["red","white","green"], "horizontal_tricolor", "", "none", "1:2", "mid-century", "tier1"],
+            ["Iceland", "Reykjavik", "IS", "Europe", ["blue","white","red"], "cross", "twin-nordic-cross", "cross", "18:25", "mid-century", "tier1"],
+            ["Ireland", "Dublin", "IE", "Europe", ["green","white","orange"], "vertical_tricolor", "twin-ireland-ivory", "none", "1:2", "ancient", "tier1"],
+            ["Italy", "Rome", "IT", "Europe", ["green","white","red"], "vertical_tricolor", "twin-ireland-ivory", "none", "2:3", "mid-century", "tier1"],
+            ["Kosovo", "Pristina", "XK", "Europe", ["blue","yellow","white"], "stars", "", "star-field", "2:3", "modern", "tier2"],
+            ["Latvia", "Riga", "LV", "Europe", ["red","white"], "stripes", "twin-latvia-austria", "none", "1:2", "post-soviet", "tier1"],
+            ["Lithuania", "Vilnius", "LT", "Europe", ["yellow","green","red"], "horizontal_tricolor", "", "none", "3:5", "post-soviet", "tier1"],
+            ["Luxembourg", "Luxembourg City", "LU", "Europe", ["red","white","blue"], "horizontal_tricolor", "twin-lux-netherlands", "none", "3:5", "mid-century", "tier1"],
+            ["Malta", "Valletta", "MT", "Europe", ["white","red"], "bicolor", "", "cross", "2:3", "mid-century", "tier2"],
+            ["Moldova", "Chisinau", "MD", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-blue-yellow-red-vertical", "fauna", "1:2", "post-soviet", "tier3"],
+            ["Monaco", "Monaco", "MC", "Europe", ["red","white"], "bicolor", "twin-indo-monaco", "none", "4:5", "ancient", "tier1"],
+            ["Montenegro", "Podgorica", "ME", "Europe", ["red","yellow","black"], "crest", "", "fauna", "1:2", "modern", "tier3"],
+            ["Netherlands", "Amsterdam", "NL", "Europe", ["red","white","blue"], "horizontal_tricolor", "twin-lux-netherlands", "none", "2:3", "ancient", "tier1"],
+            ["North Macedonia", "Skopje", "MK", "Europe", ["red","yellow"], "disc", "", "sun", "1:2", "post-soviet", "tier1"],
+            ["Norway", "Oslo", "NO", "Europe", ["red","white","blue"], "cross", "twin-nordic-cross", "cross", "8:11", "ancient", "tier1"],
+            ["Poland", "Warsaw", "PL", "Europe", ["white","red"], "bicolor", "twin-indo-monaco", "none", "5:8", "ancient", "tier1"],
+            ["Portugal", "Lisbon", "PT", "Europe", ["green","red","yellow"], "bicolor", "", "crest", "2:3", "mid-century", "tier3"],
+            ["Romania", "Bucharest", "RO", "Europe", ["blue","yellow","red"], "vertical_tricolor", "twin-romania-chad", "none", "2:3", "post-soviet", "tier1"],
+            ["Russia", "Moscow", "RU", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals", "none", "2:3", "post-soviet", "tier1"],
+            ["San Marino", "San Marino", "SM", "Europe", ["white","blue"], "bicolor", "", "crest", "3:4", "ancient", "tier3"],
+            ["Serbia", "Belgrade", "RS", "Europe", ["red","blue","white"], "horizontal_tricolor", "", "fauna", "2:3", "modern", "tier3"],
+            ["Slovakia", "Bratislava", "SK", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals", "cross", "2:3", "post-soviet", "tier2"],
+            ["Slovenia", "Ljubljana", "SI", "Europe", ["white","blue","red"], "horizontal_tricolor", "twin-panslav-horizontals", "crest", "1:2", "post-soviet", "tier2"],
+            ["Spain", "Madrid", "ES", "Europe", ["red","yellow"], "stripes", "", "crest", "2:3", "mid-century", "tier3"],
+            ["Sweden", "Stockholm", "SE", "Europe", ["blue","yellow"], "cross", "twin-nordic-cross", "cross", "5:8", "ancient", "tier1"],
+            ["Switzerland", "Bern", "CH", "Europe", ["red","white"], "cross", "", "cross", "1:1", "ancient", "tier1"],
+            ["Ukraine", "Kyiv", "UA", "Europe", ["blue","yellow"], "bicolor", "", "none", "2:3", "post-soviet", "tier1"],
+            ["United Kingdom", "London", "GB", "Europe", ["blue","white","red"], "cross", "", "cross", "1:2", "ancient", "tier1"],
+            ["Vatican City", "Vatican City", "VA", "Europe", ["yellow","white"], "bicolor", "", "cross", "1:1", "mid-century", "tier3"],
+            ["Lebanon", "Beirut", "LB", "Asia", ["red","white","green"], "crest", "", "botanical", "2:3", "mid-century", "tier2"]
         ];
 
         const twinProfiles = {
@@ -447,19 +421,6 @@
             "twin-blue-yellow-red-vertical": "Vertical Blue/Yellow/Red with Arms (Andorra & Moldova Variant)"
         };
 
-        const clusterNames = {
-            "horizontal_tricolor": "Horizontal Tricolors",
-            "vertical_tricolor": "Vertical Tricolors",
-            "bicolor": "Two-Tone Split Formats (Bicolors)",
-            "stripes": "Multiple Multi-Stripe Formats",
-            "cross": "Nordic / Traditional Structural Crosses",
-            "crescent": "Islamic Stars & Crescents",
-            "stars": "Sovereign Star Fields / Constellations",
-            "disc": "Central Discs / Roundels",
-            "diagonal": "Asymmetric Diagonal Lines & Bands",
-            "crest": "National Emblems, Shields & Icons"
-        };
-
         function buildFlagEmoji(iso) {
             if (!iso) return '';
             const points = iso.toUpperCase().split('').map(char => 127397 + char.charCodeAt(0));
@@ -467,24 +428,21 @@
         }
 
         const dataset = db.map(i => ({
-            name: i[0],
-            capital: i[1],
-            flag: buildFlagEmoji(i[2]),
-            continent: i[3],
-            colors: i[4],
-            cluster: i[5],
-            twinId: i[6],
+            name: i[0], capital: i[1], flag: buildFlagEmoji(i[2]), continent: i[3],
+            colors: i[4], cluster: i[5], twinId: i[6], symbol: i[7], ratio: i[8], era: i[9], complexity: i[10],
             initial: i[0].charAt(0).toUpperCase()
         }));
 
         let activeMainMode = 'learning';
         let activeSubMode = 'explorer';
-        let activeTestSubMode = 'quiz'; 
-        let activeContinent = 'all';
-        let activeColorVal = 'all';     
-        let activeLetter = 'all';
+        
+        // Active Filter States Dynamic Object
+        let filters = {
+            continent: 'all', cluster: 'all', colorVal: 'all', colorCount: 'all',
+            symbol: 'all', ratio: 'all', era: 'all', complexity: 'all', letter: 'all'
+        };
 
-        let chosenQuizContinents = new Set(["Europe", "Asia", "Africa", "Americas", "Oceania"]);
+        let chosenQuizContinents = new Set(["Europe", "Asia"]);
         let activeMarathonContinent = "Europe";
         let currentQuizCountries = [];
 
@@ -496,7 +454,7 @@
                 button.className = 'filter-btn';
                 button.innerText = l;
                 button.setAttribute('data-letter', l);
-                button.onclick = function() { filterLetter(l, this); };
+                button.onclick = function() { setFilter('letter', l.toLowerCase(), this); };
                 row.appendChild(button);
             });
         }
@@ -513,7 +471,7 @@
             } else {
                 document.getElementById('learning-hub-view').classList.add('hidden');
                 document.getElementById('testing-ground-view').classList.remove('hidden');
-                switchTestSubMode(activeTestSubMode);
+                startNewGameRound();
             }
         }
 
@@ -523,23 +481,132 @@
             document.getElementById(`sub-tab-${subMode}`).classList.add('active');
 
             document.getElementById('explorer-panel').classList.add('hidden');
-            document.getElementById('clusters-panel').classList.add('hidden');
             document.getElementById('twins-panel').classList.add('hidden');
 
             if (subMode === 'explorer') {
                 document.getElementById('explorer-panel').classList.remove('hidden');
                 renderExplorer();
-            } else if (subMode === 'clusters') {
-                document.getElementById('clusters-panel').classList.remove('hidden');
-                renderClusters();
             } else if (subMode === 'twins') {
                 document.getElementById('twins-panel').classList.remove('hidden');
                 renderTwins();
             }
         }
 
+        function setFilter(key, value, target) {
+            target.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            target.classList.add('active');
+            filters[key] = value;
+            
+            if (key !== 'letter') evalLetterAvailability();
+            renderExplorer();
+        }
+
+        function evalLetterAvailability() {
+            const currentFilteredPool = dataset.filter(item => {
+                if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
+                if (filters.cluster !== 'all' && item.cluster !== filters.cluster) return false;
+                if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
+                if (filters.symbol !== 'all' && item.symbol !== filters.symbol) return false;
+                if (filters.ratio !== 'all' && item.ratio !== filters.ratio) return false;
+                if (filters.era !== 'all' && item.era !== filters.era) return false;
+                if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
+                if (filters.colorCount === '2' && item.colors.length !== 2) return false;
+                if (filters.colorCount === '3' && item.colors.length !== 3) return false;
+                if (filters.colorCount === '4plus' && item.colors.length < 4) return false;
+                return true;
+            });
+
+            const activeInitials = new Set(currentFilteredPool.map(c => c.initial));
+            const letters = document.getElementById('alphabet-matrix').querySelectorAll('.filter-btn');
+            
+            letters.forEach(btn => {
+                const l = btn.getAttribute('data-letter');
+                if(!l) return;
+                
+                if(!activeInitials.has(l)) {
+                    btn.disabled = true;
+                    if(filters.letter === l.toLowerCase()) {
+                        setFilter('letter', 'all', btn.parentElement.firstElementChild);
+                    }
+                } else {
+                    btn.disabled = false;
+                }
+            });
+        }
+
+        function createCardNode(item) {
+            const block = document.createElement('div');
+            block.className = 'country-card';
+            block.innerHTML = `
+                <span class="card-flag">${item.flag}</span>
+                <div class="card-name">${item.name}</div>
+                <div class="card-capital">${item.capital}</div>
+                <div class="card-tags">
+                    <span class="card-tag">${item.ratio}</span>
+                    <span class="card-tag">${item.complexity}</span>
+                </div>
+            `;
+            return block;
+        }
+
+        function renderExplorer() {
+            const grid = document.getElementById('countries-container');
+            const metrics = document.getElementById('country-count');
+            if (!grid || !metrics) return;
+
+            let result = dataset.filter(item => {
+                if (filters.continent !== 'all' && item.continent !== filters.continent) return false;
+                if (filters.cluster !== 'all' && item.cluster !== filters.cluster) return false;
+                if (filters.colorVal !== 'all' && !item.colors.includes(filters.colorVal)) return false;
+                if (filters.symbol !== 'all' && item.symbol !== filters.symbol) return false;
+                if (filters.ratio !== 'all' && item.ratio !== filters.ratio) return false;
+                if (filters.era !== 'all' && item.era !== filters.era) return false;
+                if (filters.complexity !== 'all' && item.complexity !== filters.complexity) return false;
+                if (filters.letter !== 'all' && item.initial.toLowerCase() !== filters.letter) return false;
+                if (filters.colorCount === '2' && item.colors.length !== 2) return false;
+                if (filters.colorCount === '3' && item.colors.length !== 3) return false;
+                if (filters.colorCount === '4plus' && item.colors.length < 4) return false;
+                return true;
+            });
+
+            result.sort((x, y) => x.name.localeCompare(y.name));
+            grid.innerHTML = '';
+            metrics.innerText = `Showing ${result.length} diagnostic configurations matching criteria`;
+
+            if (result.length === 0) {
+                grid.innerHTML = '<div class="no-results">No countries match the chosen analytical criteria.</div>';
+                return;
+            }
+            result.forEach(item => grid.appendChild(createCardNode(item)));
+        }
+
+        function renderTwins() {
+            const container = document.getElementById('twins-container');
+            if (!container) return;
+            container.innerHTML = '';
+            Object.keys(twinProfiles).forEach(key => {
+                const twinGroupItems = dataset.filter(item => item.twinId === key);
+                if (twinGroupItems.length === 0) return;
+
+                const blockSection = document.createElement('div');
+                blockSection.className = 'cluster-block';
+
+                const title = document.createElement('div');
+                title.className = 'cluster-title';
+                title.style.borderColor = '#EF4444'; 
+                title.innerText = twinProfiles[key];
+                blockSection.appendChild(title);
+
+                const grid = document.createElement('div');
+                grid.className = 'app-grid';
+                twinGroupItems.forEach(item => grid.appendChild(createCardNode(item)));
+
+                blockSection.appendChild(grid);
+                container.appendChild(blockSection);
+            });
+        }
+
         function switchTestSubMode(testMode) {
-            activeTestSubMode = testMode;
             document.getElementById('sub-tab-quizmode').classList.remove('active');
             document.getElementById('sub-tab-marathonmode').classList.remove('active');
             
@@ -553,31 +620,6 @@
                 document.getElementById('panel-marathon-configs').classList.remove('hidden');
             }
             startNewGameRound();
-        }
-
-        function filterContinent(val, target) {
-            adjustBtnRowStyles(target);
-            activeContinent = val;
-            evalLetterAvailability();
-            renderExplorer();
-        }
-
-        function filterColor(val, target) {
-            adjustBtnRowStyles(target);
-            activeColorVal = val;
-            evalLetterAvailability();
-            renderExplorer();
-        }
-
-        function filterLetter(val, target) {
-            adjustBtnRowStyles(target);
-            activeLetter = val.toLowerCase();
-            renderExplorer();
-        }
-
-        function adjustBtnRowStyles(target) {
-            target.parentElement.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            target.classList.add('active');
         }
 
         function toggleQuizContinent(continent, element) {
@@ -600,127 +642,6 @@
             startNewGameRound();
         }
 
-        function evalLetterAvailability() {
-            const currentFilteredPool = dataset.filter(item => {
-                const matchContinent = (activeContinent === 'all' || item.continent === activeContinent);
-                const matchColor = (activeColorVal === 'all' || item.colors.includes(activeColorVal));
-                return matchContinent && matchColor;
-            });
-
-            const activeInitials = new Set(currentFilteredPool.map(c => c.initial));
-            const letters = document.getElementById('alphabet-matrix').querySelectorAll('.filter-btn');
-            
-            letters.forEach(btn => {
-                const l = btn.getAttribute('data-letter');
-                if(!l) return;
-                
-                if(!activeInitials.has(l)) {
-                    btn.disabled = true;
-                    if(activeLetter === l.toLowerCase()) {
-                        adjustBtnRowStyles(btn.parentElement.firstElementChild);
-                        activeLetter = 'all';
-                    }
-                } else {
-                    btn.disabled = false;
-                }
-            });
-        }
-
-        function createCardNode(item, showSub = false) {
-            const block = document.createElement('div');
-            block.className = 'country-card';
-            block.innerHTML = `
-                <span class="card-flag">${item.flag}</span>
-                <div class="card-name">${item.name}</div>
-                <div class="card-capital">${item.capital}</div>
-                ${showSub ? `<div class="card-meta">${item.continent}</div>` : ''}
-            `;
-            return block;
-        }
-
-        function renderExplorer() {
-            const grid = document.getElementById('countries-container');
-            const metrics = document.getElementById('country-count');
-            if (!grid || !metrics) return;
-
-            let result = dataset.filter(item => {
-                const matchCont = (activeContinent === 'all' || item.continent === activeContinent);
-                const matchCol = (activeColorVal === 'all' || item.colors.includes(activeColorVal));
-                const matchLet = (activeLetter === 'all' || item.initial.toLowerCase() === activeLetter);
-                return matchCont && matchCol && matchLet;
-            });
-
-            result.sort((x, y) => x.name.localeCompare(y.name));
-            grid.innerHTML = '';
-            metrics.innerText = `Showing ${result.length} countries matching rules`;
-
-            if (result.length === 0) {
-                grid.innerHTML = '<div class="no-results">No countries match the chosen criteria.</div>';
-                return;
-            }
-            result.forEach(item => grid.appendChild(createCardNode(item)));
-        }
-
-        function renderClusters() {
-            const container = document.getElementById('clusters-container');
-            const clusterCountText = document.getElementById('cluster-count');
-            if (!container || !clusterCountText) return;
-
-            container.innerHTML = '';
-            const categories = Object.keys(clusterNames);
-            let totalCategorized = 0;
-
-            categories.forEach(cat => {
-                const clusterItems = dataset.filter(item => item.cluster === cat);
-                if (clusterItems.length === 0) return;
-                totalCategorized += clusterItems.length;
-
-                const blockSection = document.createElement('div');
-                blockSection.className = 'cluster-block';
-
-                const title = document.createElement('div');
-                title.className = 'cluster-title';
-                title.innerText = `${clusterNames[cat]} (${clusterItems.length})`;
-                blockSection.appendChild(title);
-
-                const grid = document.createElement('div');
-                grid.className = 'app-grid';
-                clusterItems.sort((a,b) => a.name.localeCompare(b.name));
-                clusterItems.forEach(item => grid.appendChild(createCardNode(item, true)));
-
-                blockSection.appendChild(grid);
-                container.appendChild(blockSection);
-            });
-            clusterCountText.innerText = `Mapped ${totalCategorized} states across active geometric classes`;
-        }
-
-        function renderTwins() {
-            const container = document.getElementById('twins-container');
-            if (!container) return;
-            container.innerHTML = '';
-            Object.keys(twinProfiles).forEach(key => {
-                const twinGroupItems = dataset.filter(item => item.twinId === key);
-                if (twinGroupItems.length === 0) return;
-
-                const blockSection = document.createElement('div');
-                blockSection.className = 'cluster-block';
-
-                const title = document.createElement('div');
-                title.className = 'cluster-title';
-                title.style.borderColor = '#EF4444'; 
-                title.innerText = twinProfiles[key];
-                blockSection.appendChild(title);
-
-                const grid = document.createElement('div');
-                grid.className = 'app-grid';
-                twinGroupItems.forEach(item => grid.appendChild(createCardNode(item, true)));
-
-                blockSection.appendChild(grid);
-                container.appendChild(blockSection);
-            });
-        }
-
-        // GENERATE RUNTIME MATRIX GRID
         function startNewGameRound() {
             const targetContainer = document.getElementById('game-main-matrix-rows-container');
             targetContainer.innerHTML = '';
@@ -728,16 +649,16 @@
             let poolByContinents = [];
             let requestedSize = 10;
 
-            if (activeTestSubMode === 'quiz') {
+            if (document.getElementById('panel-quiz-configs').classList.contains('hidden') === false) {
                 poolByContinents = dataset.filter(item => chosenQuizContinents.has(item.continent));
                 requestedSize = parseInt(document.getElementById('quiz-size-select').value) || 10;
             } else {
                 poolByContinents = dataset.filter(item => item.continent === activeMarathonContinent);
-                requestedSize = poolByContinents.length;
+                requestedSize = Math.min(poolByContinents.length, 12);
             }
 
             if (poolByContinents.length === 0) {
-                targetContainer.innerHTML = `<div class="no-results">Please select parameters to populate the quiz matrix.</div>`;
+                targetContainer.innerHTML = `<div class="no-results">Select parameters to populate game matrix.</div>`;
                 return;
             }
 
@@ -745,10 +666,7 @@
             currentQuizCountries = shuffledPool.slice(0, requestedSize);
 
             const unifiedFlagsPool = currentQuizCountries.map(c => ({ name: c.name, flag: c.flag })).sort(() => 0.5 - Math.random());
-            
-            // Alphabetic sorting (A to Z) for capital choices
-            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital }))
-                .sort((a, b) => a.capital.localeCompare(b.capital));
+            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital })).sort((a, b) => a.capital.localeCompare(b.capital));
 
             currentQuizCountries.forEach((country, rowIndex) => {
                 const rowWrapper = document.createElement('div');
@@ -760,7 +678,7 @@
                 titleCol.innerHTML = `${country.name}<br><span style="font-size:10px; color:var(--text-sub); font-weight:500;">${country.continent}</span>`;
                 rowWrapper.appendChild(titleCol);
 
-                // Flag Field Column
+                // Flags Slot Column
                 const flagFieldBlock = document.createElement('div');
                 flagFieldBlock.className = 'matching-field-block';
                 flagFieldBlock.innerHTML = `<div class="matching-field-label">Flag Matrix Field</div>`;
@@ -774,7 +692,7 @@
 
                 const rowFlagBank = document.createElement('div');
                 rowFlagBank.className = 'choices-pool-row';
-                unifiedFlagsPool.forEach((fData, choiceIdx) => {
+                unifiedFlagsPool.forEach(fData => {
                     const item = document.createElement('div');
                     item.className = 'draggable-item';
                     item.setAttribute('data-global-id', `flag-val-${fData.name}`);
@@ -787,7 +705,7 @@
                 flagFieldBlock.appendChild(rowFlagBank);
                 rowWrapper.appendChild(flagFieldBlock);
 
-                // Capital Field Column
+                // Capitals Slot Column
                 const capitalFieldBlock = document.createElement('div');
                 capitalFieldBlock.className = 'matching-field-block';
                 capitalFieldBlock.innerHTML = `<div class="matching-field-label">Capital Matrix Field</div>`;
@@ -801,7 +719,7 @@
 
                 const rowCapitalBank = document.createElement('div');
                 rowCapitalBank.className = 'choices-pool-row';
-                unifiedCapitalsPool.forEach((cData, choiceIdx) => {
+                unifiedCapitalsPool.forEach(cData => {
                     const item = document.createElement('div');
                     item.className = 'draggable-item';
                     item.setAttribute('data-global-id', `capital-val-${cData.name}`);
@@ -818,37 +736,28 @@
             });
         }
 
-        // ROW-SCOPED MATCH SELECTION (FIXED LOGIC BUG)
         function handleChipAutoPlacement(chipNode) {
             if (chipNode.classList.contains('placed')) return;
-
             const itemType = chipNode.dataset.itemType;
             const targetValue = chipNode.dataset.originCountry;
             const globalId = chipNode.getAttribute('data-global-id');
-
-            // Find the unique row wrapper where this chip lives
             const contextRow = chipNode.closest('.game-row-container');
             if (!contextRow) return;
 
-            // Target the slot explicitly inside this row scope
             const slot = contextRow.querySelector(`.game-slot[data-slot-type="${itemType}"]`);
-            
             if (slot && !slot.classList.contains('filled')) {
                 slot.classList.add('filled');
                 slot.dataset.assignedValue = targetValue;
                 slot.dataset.sourceGlobalId = globalId;
                 slot.innerHTML = chipNode.innerHTML;
-                
                 toggleGlobalChipState(globalId, true);
             }
         }
 
         function clearFilledSlot(slot) {
             if (!slot.classList.contains('filled')) return;
-            
             const targetGlobalId = slot.dataset.sourceGlobalId;
             toggleGlobalChipState(targetGlobalId, false);
-            
             slot.classList.remove('filled', 'correct', 'incorrect');
             slot.innerText = 'Empty Slot';
             delete slot.dataset.assignedValue;
@@ -856,24 +765,17 @@
         }
 
         function toggleGlobalChipState(globalId, shouldDisable) {
-            const occurrences = document.querySelectorAll(`[data-global-id="${globalId}"]`);
-            occurrences.forEach(chip => {
-                if (shouldDisable) {
-                    chip.classList.add('placed');
-                } else {
-                    chip.classList.remove('placed');
-                }
+            document.querySelectorAll(`[data-global-id="${globalId}"]`).forEach(chip => {
+                if (shouldDisable) chip.classList.add('placed');
+                else chip.classList.remove('placed');
             });
         }
 
         function checkGameAnswers() {
-            const slots = document.querySelectorAll('.game-slot');
-            slots.forEach(slot => {
+            document.querySelectorAll('.game-slot').forEach(slot => {
                 if (!slot.classList.contains('filled')) return;
-                
                 const targetCountry = slot.closest('.game-row-container').dataset.countryName;
                 const assignedCountry = slot.dataset.assignedValue;
-
                 if (targetCountry === assignedCountry) {
                     slot.classList.remove('incorrect');
                     slot.classList.add('correct');
