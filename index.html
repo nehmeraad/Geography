@@ -113,6 +113,7 @@
         <button class="main-tab-btn" id="main-tab-testing" onclick="switchMainMode('testing')">Testing Ground</button>
     </div>
 
+    <!-- LEARNING HUB INTERFACE -->
     <div id="learning-hub-view">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-explorer" onclick="switchSubMode('explorer')">Interactive Explorer</button>
@@ -167,6 +168,7 @@
         </div>
     </div>
 
+    <!-- TESTING GROUND INTERFACE -->
     <div id="testing-ground-view" class="hidden">
         <div class="sub-tabs">
             <button class="sub-tab-btn active" id="sub-tab-quizmode" onclick="switchTestSubMode('quiz')">Quiz Size Mode</button>
@@ -175,6 +177,7 @@
 
         <div class="game-layout">
             <div class="game-control-panel">
+                <!-- Config Options for Mode 1: Quiz Mode -->
                 <div id="panel-quiz-configs">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Target Continents:</div>
@@ -199,6 +202,7 @@
                     </div>
                 </div>
 
+                <!-- Config Options for Mode 2: Marathon Mode -->
                 <div id="panel-marathon-configs" class="hidden">
                     <div class="quiz-config-row">
                         <div class="quiz-config-label">Active Continent:</div>
@@ -214,7 +218,7 @@
                 </div>
                 
                 <div class="game-actions">
-                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Click choices to instantly deploy them. Click inside filled slots to remove.</span>
+                    <span style="font-size:12px; font-weight:600; color:var(--text-sub);">Click choices within a specific row to deploy them into that row's slot. Click filled slots to remove.</span>
                     <div class="btn-row">
                         <button class="game-btn" style="background: var(--success);" onclick="checkGameAnswers()">Verify Match Matrix</button>
                         <button class="game-btn" onclick="startNewGameRound()">Reset Grid Layout</button>
@@ -223,7 +227,8 @@
             </div>
             
             <div style="display: flex; flex-direction: column; gap: 10px;" id="game-main-matrix-rows-container">
-                </div>
+                <!-- Dynamic Rows -->
+            </div>
         </div>
     </div>
 
@@ -435,6 +440,7 @@
             "twin-ireland-ivory": "Ireland, Ivory Coast & Italy (Vertical Tricolor & Mirror Variations)",
             "twin-indo-monaco": "Indonesia, Poland & Monaco (Horizontal Two-Tone Splits)",
             "twin-lux-netherlands": "Netherlands, Luxembourg & Paraguay (Red/White/Blue Horizontal Tiers)",
+            "twin-arab-stripes": "Iraq, Yemen & Egypt (Arab Liberation Red/White/Black Tricolor Formats)",
             "twin-arab-stripes": "Iraq, Yemen & Egypt (Arab Liberation Red/White/Black Tricolor Formats)",
             "twin-turk-tunisia": "Turkey & Tunisia (Crescent Moon and Star configurations on Red)",
             "twin-nordic-cross": "The Nordic Cross Constellation (Iceland, Denmark, Finland, Norway, Sweden)",
@@ -813,7 +819,7 @@
             });
         }
 
-        // ONE-CLICK AUTOMATED MATCH SELECTION
+        // ROW-SCOPED MATCH SELECTION (FIXED LOGIC BUG)
         function handleChipAutoPlacement(chipNode) {
             if (chipNode.classList.contains('placed')) return;
 
@@ -821,20 +827,20 @@
             const targetValue = chipNode.dataset.originCountry;
             const globalId = chipNode.getAttribute('data-global-id');
 
-            const slots = document.querySelectorAll(`.game-slot[data-slot-type="${itemType}"]`);
-            let placed = false;
+            // Find the unique row wrapper where this chip lives
+            const contextRow = chipNode.closest('.game-row-container');
+            if (!contextRow) return;
 
-            for (let slot of slots) {
-                if (!slot.classList.contains('filled')) {
-                    slot.classList.add('filled');
-                    slot.dataset.assignedValue = targetValue;
-                    slot.dataset.sourceGlobalId = globalId;
-                    slot.innerHTML = chipNode.innerHTML;
-                    
-                    toggleGlobalChipState(globalId, true);
-                    placed = true;
-                    break;
-                }
+            // Target the slot explicitly inside this row scope
+            const slot = contextRow.querySelector(`.game-slot[data-slot-type="${itemType}"]`);
+            
+            if (slot && !slot.classList.contains('filled')) {
+                slot.classList.add('filled');
+                slot.dataset.assignedValue = targetValue;
+                slot.dataset.sourceGlobalId = globalId;
+                slot.innerHTML = chipNode.innerHTML;
+                
+                toggleGlobalChipState(globalId, true);
             }
         }
 
