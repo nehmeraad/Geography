@@ -766,7 +766,8 @@
             }
 
             const unifiedFlagsPool = currentQuizCountries.map(c => ({ name: c.name, flag: c.flag })).sort(() => 0.5 - Math.random());
-            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital })).sort(() => 0.5 - Math.random());
+            // Updated to sort the capitals in alphabetical order instead of randomizing
+            const unifiedCapitalsPool = currentQuizCountries.map(c => ({ name: c.name, capital: c.capital })).sort((a, b) => a.capital.localeCompare(b.capital));
 
             currentQuizCountries.forEach((country) => {
                 const rowWrapper = document.createElement('div');
